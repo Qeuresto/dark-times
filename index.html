@@ -38,6 +38,7 @@ a{color:inherit}
 .brand span{color:var(--accent)}
 .tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);text-align:right;display:flex;flex-direction:column;gap:2px}
 .tag b{color:var(--fg);font-weight:600}
+.tag .upd{color:var(--accent);font-weight:600}
 
 .ticker{overflow:hidden;border-block:1px solid var(--line);font-family:var(--mono);font-size:12.5px;white-space:nowrap;margin-top:-16px}
 .ticker div{display:inline-block;padding-block:7px;animation:tick 70s linear infinite}
@@ -123,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Wednesday, 14 October 2026</b><span>The news, but honest about the vibes</span></div>
+    <div class="tag"><b id="today">Wednesday, 14 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -252,6 +253,17 @@ const TIERS = [
   {max:80,  label:"Well Done",     tok:"--d4", blurb:"The world is medium-well and the chef stopped taking feedback. Hydrate, hug someone, check on the oil price."},
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
+// Last update, set on every refresh (Dubai time)
+const UPDATED = "2026-10-14T18:59:00+04:00";
+(function showUpdated(){
+  const d = new Date(UPDATED);
+  const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
+  const mins = Math.round((Date.now() - d) / 60000);
+  const ago = mins < 1 ? "just now" : mins < 60 ? `${mins} min ago` : mins < 2880 ? `${Math.round(mins/60)}h ago` : `${Math.round(mins/1440)} days ago`;
+  const el = document.getElementById("updated");
+  el.textContent = `Last updated ${when} (Dubai) · ${ago}`;
+  el.title = d.toISOString();
+})();
 const tier = s => TIERS.find(t => s < t.max);
 const col = t => `var(${t.tok})`;
 
