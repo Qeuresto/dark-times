@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Real news, honest headlines, and a meter for how close we are to the end.">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>Dark Times</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: civil-defense bulletin — masthead, big gauge hero, lead story, two-column story grid with segmented doom meters */
+:root{
+  --bg:#eceee9; --surface:#f8f9f6; --fg:#16181a; --ink2:#4b524f; --line:#c9cdc6;
+  --accent:#d9480f;
+  --d1:#2f9e44; --d2:#c99700; --d3:#e8590c; --d4:#d6336c; --d5:#7a0c2e; --off:#d8dbd4;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121413; --surface:#1b1e1c; --fg:#e9ebe6; --ink2:#9aa29d; --line:#2e332f;
+  --accent:#ff7a2e; --d1:#51cf66; --d2:#ffd43b; --d3:#ff922b; --d4:#f06595; --d5:#c2255c; --off:#2b302d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121413; --surface:#1b1e1c; --fg:#e9ebe6; --ink2:#9aa29d; --line:#2e332f;
+  --accent:#ff7a2e; --d1:#51cf66; --d2:#ffd43b; --d3:#ff922b; --d4:#f06595; --d5:#c2255c; --off:#2b302d; color-scheme:dark}
+
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;display:flex;flex-direction:column;gap:28px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* masthead */
+.mast{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:4px solid var(--fg);padding-bottom:10px}
+.brand{font-family:var(--display);font-weight:900;font-size:clamp(52px,11vw,104px);line-height:.85;letter-spacing:-.01em;text-transform:uppercase;margin:0}
+.brand span{color:var(--accent)}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);text-align:right;display:flex;flex-direction:column;gap:2px}
+.tag b{color:var(--fg);font-weight:600}
+
+.ticker{overflow:hidden;border-block:1px solid var(--line);font-family:var(--mono);font-size:12.5px;white-space:nowrap;margin-top:-16px}
+.ticker div{display:inline-block;padding-block:7px;animation:tick 70s linear infinite}
+.ticker em{font-style:normal;color:var(--accent);font-weight:600;margin-right:6px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* hero gauge */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:24px}
+.hero svg{width:100%;max-width:520px;height:auto;display:block;margin:0 auto}
+.needle{transform-origin:200px 200px;transform:rotate(var(--ang));animation:sweep 1.6s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes sweep{from{transform:rotate(-90deg)}to{transform:rotate(var(--ang))}}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.reading{display:flex;flex-direction:column;gap:12px;min-width:0}
+.reading h2{font-family:var(--display);font-weight:900;font-size:clamp(34px,5vw,54px);line-height:.95;text-transform:uppercase;margin:0;text-wrap:balance}
+.big{font-family:var(--display);font-weight:900;font-size:clamp(64px,9vw,96px);line-height:.85;font-variant-numeric:tabular-nums}
+.big small{font-size:.35em;color:var(--ink2);font-weight:700}
+.reading p{margin:0;max-width:46ch;color:var(--ink2)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4px}
+.stats div{background:var(--surface);padding:10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.stats span{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.stats b{font-family:var(--display);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+button{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;background:transparent;color:var(--fg);border:1px solid var(--line);padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--fg)}
+button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* stories */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card.lead{grid-column:1/-1;padding:28px}
+.kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);display:flex;gap:10px;flex-wrap:wrap}
+.kick b{color:var(--accent);font-weight:600}
+.card h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,30px);line-height:1.02;margin:0;text-wrap:balance}
+.card.lead h3{font-size:clamp(32px,4.6vw,52px);font-weight:900}
+.real{margin:0;font-size:15px;color:var(--ink2);max-width:68ch}
+.real strong{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);font-weight:600;margin-right:6px}
+.meter{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+.cells{display:flex;gap:3px}
+.cells i{width:14px;height:18px;background:var(--off);display:block}
+.score{font-family:var(--display);font-weight:900;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.verdict{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;color:#fff}
+.src{font-family:var(--mono);font-size:11.5px;color:var(--ink2);display:flex;gap:10px;flex-wrap:wrap}
+.src a{text-decoration-color:var(--line);text-underline-offset:3px}
+.src a:hover{text-decoration-color:var(--accent)}
+
+.card{padding:0;gap:0}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.card.lead{padding:0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.card.lead .body{padding:28px}
+.plate{position:relative;margin:0;max-width:100%;display:flex;align-items:center;border-bottom:1px solid var(--line);
+  background:radial-gradient(rgba(0,0,0,.17) 1.1px, transparent 1.6px) 0 0/7px 7px, var(--tier)}
+.lead .plate{border-bottom:0;border-right:1px solid var(--line)}
+.plate svg{width:100%;height:auto;aspect-ratio:16/9;display:block}
+.badge{position:absolute;top:10px;left:10px;background:var(--fg);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.06em;padding:4px 8px}
+.srccount{color:var(--fg);font-weight:600}
+.outlets{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.outlets b{color:var(--fg);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-right:4px}
+.outlets span{border:1px solid var(--line);padding:4px 8px;background:var(--surface)}
+.outlets span em{font-style:normal;color:var(--accent);font-weight:600;margin-left:4px}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:760px){.card.lead{grid-template-columns:minmax(0,1fr)}.lead .plate{border-right:0;border-bottom:1px solid var(--line)}}
+@media (max-width:440px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:11.5px;color:var(--ink2)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;display:inline-block}
+footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding-top:14px;display:flex;flex-direction:column;gap:6px;max-width:75ch}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:minmax(0,1fr);padding:16px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .card.lead{padding:20px}
+  .tag{text-align:left}
+  .cells i{width:11px}
+}
+@media (prefers-reduced-motion:reduce){.needle,.ticker div{animation:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="mast">
+    <h1 class="brand">Dark <span>Times</span></h1>
+    <div class="tag"><b id="today">Wednesday, 14 October 2026</b><span>The news, but honest about the vibes</span></div>
+  </header>
+
+  <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
+
+  <section class="hero" aria-labelledby="gauge-h">
+    <svg viewBox="0 0 400 236" role="img" aria-labelledby="gauge-t">
+      <title id="gauge-t">How F*cked Are We gauge</title>
+      <g id="arcs" fill="none" stroke-width="34"></g>
+      <g id="ticks" font-family="JetBrains Mono, monospace" font-size="12" fill="var(--ink2)"></g>
+      <g class="needle" id="needle">
+        <polygon points="196,200 204,200 200,52" fill="var(--fg)"/>
+        <circle cx="200" cy="200" r="13" fill="var(--fg)"/>
+        <circle cx="200" cy="200" r="5" fill="var(--accent)"/>
+      </g>
+    </svg>
+    <div class="reading">
+      <span class="eyebrow">How F*cked Are We™ · today's reading</span>
+      <div class="big" id="overall">—<small>/100</small></div>
+      <h2 id="overall-label">—</h2>
+      <p id="overall-blurb"></p>
+      <div class="stats">
+        <div><span>Most cursed</span><b id="s-max">—</b></div>
+        <div><span>Least cursed</span><b id="s-min">—</b></div>
+        <div><span>Stories</span><b id="s-n">—</b></div>
+        <div><span>Sources</span><b id="s-src">—</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="outlets" id="outlets"></div>
+
+  <div class="controls">
+    <div class="chips" id="chips" role="group" aria-label="Filter by desk"></div>
+    <div class="chips" role="group" aria-label="Sort">
+      <button id="sort-doom" aria-pressed="true">Most cursed first</button>
+      <button id="sort-calm" aria-pressed="false">Ease me in</button>
+    </div>
+  </div>
+
+  <main class="grid" id="grid"></main>
+
+  <div class="legend" id="legend"></div>
+
+  <footer>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 13–14 October 2026. Read the sources before you panic at anyone.</span>
+    <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
+  </footer>
+</div>
+
+<script>
+const STORIES = [
+  {desk:"Middle East", region:"Strait of Hormuz", doom:85, art:"ship",
+   h:"Iran Says It's Hitting Five “Smuggling Ships” a Night, Running Hormuz Like a Nightclub Door",
+   real:"At least three vessels were struck by unidentified projectiles in the strait on Monday. Iranian official Mohsen Rezaei said Iranian forces hit an average of five ships a night, apparently referring to US-escorted oil shipments, while Iran keeps up its blockade.",
+   src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"]]},
+  {desk:"Middle East", region:"Saudi Arabia", doom:80, art:"derrick",
+   h:"Houthis Hit an Aramco Office Building, Accidentally Giving Middle Management a Day Off",
+   real:"A strike caused a small fire at an Aramco administrative building in Dhahran, with no injuries reported. Debris from intercepted missiles injured four people and damaged 15 homes in Riyadh, and the Saudi-led coalition hit Houthi energy terminals and fuel reserves in Yemen.",
+   src:[["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+  {desk:"Middle East", region:"USA / Yemen", doom:72, art:"phone",
+   h:"Trump Says the Houthis Are “Misbehaving,” Weighs Sending Them to Their Room by Aircraft Carrier",
+   real:"Trump accused the Houthis of targeting Saudi infrastructure to push up energy prices before the US midterms, and said they re-emerged probably at Iran's behest. He hasn't said whether the US will join the Saudi strikes; the Houthis have threatened a painful response if it does.",
+   src:[["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"]]},
+  {desk:"World", region:"Ukraine / Russia", doom:68, art:"missile",
+   h:"Kremlin on Trump's Energy Ceasefire: “Contacts Continue,” Which Is Diplomat for “lol”",
+   real:"Russia hasn't confirmed the energy ceasefire Trump announced on Sunday, and fired more than 100 weapons at Ukraine from Monday evening. Zelenskyy said partners gave no warning of five ballistic missiles that hit Kyiv; Trump said the US hasn't stopped sharing intelligence.",
+   src:[["PBS NewsHour / AP","https://www.pbs.org/newshour/world/ukraine-had-no-intelligence-from-partners-about-missiles-headed-to-kyiv-zelenskyy-says"]]},
+  {desk:"World", region:"Horn of Africa", doom:66, art:"drone",
+   h:"Ethiopia and Eritrea Skip the Group Chat, Go Straight to Drones",
+   real:"Ethiopian drone strikes hit Eritrean vehicles around Adigrat days after Ethiopia expelled Eritrean diplomats and Eritrea cut ties. Separate suspected drone explosions were reported in Addis Ababa.",
+   src:[["Euronews","https://www.euronews.com/news/international"],["Wikipedia: Oct 2026","https://en.wikipedia.org/wiki/Portal:Current_events/October_2026"]]},
+  {desk:"Middle East", region:"Riyadh", doom:55, art:"plane", t:"2027",
+   h:"Delta Pushes Riyadh Flights to 2027, Joining Everyone's “Maybe Next Year” Pile",
+   real:"Saudi authorities suspended operations at Riyadh's King Khalid airport through 17 October after a deadly Houthi strike, and are investigating why air defences failed. US government staff now need special authorisation to use Saudi airports, and Delta postponed its Atlanta–Riyadh launch to March 2027.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["Naharnet","https://www.naharnet.com/"]]},
+  {desk:"Money", region:"Global", doom:52, art:"pump", t:"$105",
+   h:"Brent Slips to $105 a Barrel, Which Is Apparently What a Bargain Looks Like Now",
+   real:"Brent eased to about $105 on Wednesday as the US said it helped move over 19 million barrels through Hormuz and Saudi output rose, offset by fresh Houthi attacks. It's still up about 70% on a year ago.",
+   src:[["Trading Economics","https://tradingeconomics.com/commodity/brent-crude-oil"],["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"]]},
+  {desk:"World", region:"UK / Iran", doom:50, art:"folder",
+   h:"Iran Demands Receipts Before Being Accused of Plotting, Like a Very Normal Customer",
+   real:"Iran told Britain's ambassador it could reconsider relations unless the UK shows evidence tying it to an alleged plot against RAF Fairford. PM Andy Burnham said the plot was almost certainly directed by the Revolutionary Guard; seven men were arrested and released on bail, none charged.",
+   src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+  {desk:"Middle East", region:"Lebanon", doom:42, art:"cedar", t:"BUSY WEEK",
+   h:"Lebanon Books Two Military Meetings With Israel and a Qatari Visit; Its Calendar Is Now Worse Than Yours",
+   real:"A Lebanon–Israel military meeting is set for 20 and 22 October, and Qatar's prime minister is expected in Beirut on Thursday. President Aoun also condemned the Houthi attacks on Saudi Arabia in a call with the crown prince.",
+   src:[["Naharnet","https://www.naharnet.com/"]]},
+  {desk:"Money", region:"Markets", doom:40, art:"gold",
+   h:"Gold Hits $4,210 an Ounce as Investors Seek the Ancient Safety of Shiny Rocks",
+   real:"Gold rose to about $4,210 an ounce while the 10-year Treasury yield hovered near 5.2%, just off its highest level in more than 24 years. September inflation data is due Wednesday.",
+   src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"]]},
+  {desk:"World", region:"Israel / USA", doom:35, art:"ballot",
+   h:"Trump Won't Say Who He Wants in Israel's Election; Netanyahu Checks His Phone Again",
+   real:"Asked about Israel's 27 October election, Trump said he hadn't even thought about endorsing anyone, after earlier sidestepping a question on backing Netanyahu's re-election.",
+   src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+  {desk:"Weird", region:"Washington", doom:28, art:"tv", t:"ON AIR",
+   h:"Judge Tells White House It Can't Just Mute CNN and Politico From the Group Chat",
+   real:"Federal judge Timothy Kelly extended White House press access for CNN, MS Now and Politico, which the administration had barred in September.",
+   src:[["inkl news brief","https://www.inkl.com/news/latest-news-bulletin-october-14th-2026-morning"]]},
+  {desk:"Tech", region:"US / China", doom:26, art:"chip",
+   h:"Memory Stocks Fall for a Second Day and Can't Quite Remember Why",
+   real:"Micron, Sandisk, Seagate and Western Digital slid again after Chinese chipmaker CXMT said it plans to produce next-generation memory chips. Big US banks reported earnings the same morning to a mixed reaction.",
+   src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"],["TheStreet","https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"]]},
+  {desk:"Good News", region:"Portugal", doom:4, art:"train", t:"−0.2% DOOM",
+   h:"Portugal Starts Building a Fast Train, Single-Handedly Lowering Global Doom by 0.2%",
+   real:"Construction has begun on Portugal's high-speed rail line between Lisbon and Porto.",
+   src:[["Euronews","https://www.euronews.com/video/2026/10/12/latest-news-bulletin-october-12th-2026-morning"]]}
+];
+
+const TIERS = [
+  {max:20,  label:"Touch Grass",   tok:"--d1", blurb:"Honestly fine. Go outside. Drink water. Ignore this site."},
+  {max:40,  label:"Mildly Cooked", tok:"--d2", blurb:"Some sizzle. Nothing a strong coffee and a muted group chat can't handle."},
+  {max:60,  label:"Cooked",        tok:"--d3", blurb:"Proper heat. Keep your passport somewhere you can find it, for vibes."},
+  {max:80,  label:"Well Done",     tok:"--d4", blurb:"The world is medium-well and the chef stopped taking feedback. Hydrate, hug someone, check on the oil price."},
+  {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
+];
+const tier = s => TIERS.find(t => s < t.max);
+const col = t => `var(${t.tok})`;
+
+// Overall
+const scores = STORIES.map(s => s.doom);
+const avg = scores.reduce((a,b)=>a+b,0)/scores.length;
+const worst = Math.max(...scores), best = Math.min(...scores);
+const overall = Math.round(avg*0.6 + worst*0.4);
+const ot = tier(overall);
+document.getElementById('overall').innerHTML = `${overall}<small>/100</small>`;
+const ol = document.getElementById('overall-label'); ol.textContent = ot.label; ol.style.color = col(ot);
+document.getElementById('overall-blurb').textContent = ot.blurb;
+document.getElementById('s-max').textContent = worst;
+document.getElementById('s-min').textContent = best;
+document.getElementById('s-n').textContent = STORIES.length;
+
+// Sources
+const outletCount = {}, urls = new Set();
+STORIES.forEach(s => s.src.forEach(([n,u]) => { outletCount[n] = (outletCount[n]||0) + 1; urls.add(u); }));
+const outletNames = Object.keys(outletCount).sort((a,b)=>outletCount[b]-outletCount[a] || a.localeCompare(b));
+document.getElementById('s-src').textContent = outletNames.length;
+document.getElementById('outlets').innerHTML = `<b>Sourced from ${outletNames.length} outlets · ${urls.size} reports</b>` +
+  outletNames.map(n => `<span>${n}<em>×${outletCount[n]}</em></span>`).join('');
+
+// Illustrations
+const burst = (cx,cy,r,n,f,s) => { let p=[]; for(let i=0;i<n*2;i++){const a=Math.PI*i/n, rr=i%2?r*.5:r; p.push((cx+rr*Math.cos(a)).toFixed(1)+','+(cy+rr*Math.sin(a)).toFixed(1));} return `<polygon points="${p.join(' ')}" fill="${f}" stroke="${s}" stroke-width="3"/>`; };
+const M = 'font-family="JetBrains Mono,monospace" font-weight="600"', D = 'font-family="Big Shoulders Display,Impact,sans-serif" font-weight="900"';
+const drop = (x,y,I,H) => `<path d="M${x} ${y-14}C${x+10} ${y} ${x+9} ${y+12} ${x} ${y+12}C${x-9} ${y+12} ${x-10} ${y} ${x} ${y-14}Z" fill="${H}" stroke="${I}" stroke-width="3"/>`;
+const flame = (x,b,h,f) => `<path d="M${x} ${b-h}C${x+16} ${b-h*.5} ${x+18} ${b-6} ${x} ${b}C${x-18} ${b-6} ${x-16} ${b-h*.5} ${x} ${b-h}Z" fill="${f}"/>`;
+const ART = {
+  ship:(I,H)=>`<path d="M48 124H270L248 154H72Z" fill="${I}"/>
+    ${[0,1,2,3,4].map(k=>`<rect x="${78+k*28}" y="${k%2?98:104}" width="25" height="${k%2?26:20}" fill="${k%2?I:H}" stroke="${I}" stroke-width="3"/>`).join('')}
+    <rect x="222" y="74" width="30" height="50" fill="${I}"/><rect x="228" y="82" width="18" height="8" fill="${H}"/>
+    <path d="M14 166q16-9 32 0t32 0t32 0t32 0t32 0t32 0t32 0t32 0t32 0" fill="none" stroke="${I}" stroke-width="4" stroke-linecap="round"/>
+    ${burst(132,56,30,10,H,I)}`,
+  derrick:(I,H)=>`<path d="M120 152L160 36L200 152" fill="none" stroke="${I}" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M133 114H187M141 90H179M149 66H171M133 114L179 90M187 114L141 90M141 90L171 66M179 90L149 66" stroke="${I}" stroke-width="4" fill="none"/>
+    <path d="M160 8C174 22 178 34 160 40C142 34 146 22 160 8Z" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <rect x="96" y="150" width="128" height="10" fill="${I}"/>
+    <g transform="rotate(-6 264 72)"><rect x="220" y="50" width="90" height="46" fill="${H}" stroke="${I}" stroke-width="4"/>
+    <text x="265" y="69" text-anchor="middle" ${M} font-size="10" fill="${I}">PLEASE</text><text x="265" y="85" text-anchor="middle" ${M} font-size="10" fill="${I}">EVACUATE :)</text></g>`,
+  drone:(I,H)=>{const r=(x,y)=>`<line x1="160" y1="97" x2="${x}" y2="${y}" stroke="${I}" stroke-width="6"/><rect x="${x-3}" y="${y-6}" width="6" height="10" fill="${I}"/><ellipse cx="${x}" cy="${y-7}" rx="28" ry="6" fill="${H}" stroke="${I}" stroke-width="3"/>`;
+    return r(112,72)+r(208,72)+r(112,132)+r(208,132)+`<rect x="136" y="84" width="48" height="26" rx="6" fill="${I}"/><circle cx="160" cy="116" r="6" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <path d="M246 22h56a8 8 0 0 1 8 8v22a8 8 0 0 1-8 8h-36l-12 10v-10h-8a8 8 0 0 1-8-8v-22a8 8 0 0 1 8-8z" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <circle cx="262" cy="41" r="4" fill="${I}"/><circle cx="274" cy="41" r="4" fill="${I}"/><circle cx="286" cy="41" r="4" fill="${I}"/>
+    <line x1="238" y1="74" x2="314" y2="14" stroke="${I}" stroke-width="5" stroke-linecap="round"/>`},
+  missile:(I,H)=>`<g transform="rotate(-4 92 100)"><rect x="40" y="58" width="104" height="84" fill="${H}" stroke="${I}" stroke-width="4"/>
+    <text x="92" y="84" text-anchor="middle" ${M} font-size="11" fill="${I}">CEASEFIRE</text><path d="M54 100h76M54 112h76M54 124h50" stroke="${I}" stroke-width="3"/></g>
+    <g transform="translate(232 84) rotate(-30)"><path d="M-60 -6L-94 0L-60 6Z" fill="${H}" stroke="${I}" stroke-width="2"/>
+    <path d="M-60 -9H40L62 0L40 9H-60Z" fill="${I}"/><path d="M-58 -9L-74 -25L-46 -9ZM-58 9L-74 25L-46 9Z" fill="${I}"/><rect x="10" y="-9" width="6" height="18" fill="${H}"/></g>`,
+  rocket:(I,H)=>`<path d="M40 150Q80 20 120 150M200 150Q240 20 280 150" fill="none" stroke="${I}" stroke-width="3" stroke-dasharray="6 6" opacity=".55"/>
+    <path d="M146 104Q160 158 174 104Z" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <path d="M144 84L126 114H146ZM176 84L194 114H174Z" fill="${I}"/>
+    <path d="M160 16C176 32 178 60 176 106H144C142 60 144 32 160 16Z" fill="${I}"/><circle cx="160" cy="56" r="7" fill="${H}"/>
+    <text x="226" y="168" text-anchor="middle" ${M} font-size="12" fill="${I}">AGAIN.</text>`,
+  petri:(I,H)=>`<circle cx="150" cy="92" r="58" fill="${H}" stroke="${I}" stroke-width="6"/><circle cx="150" cy="92" r="47" fill="none" stroke="${I}" stroke-width="2" opacity=".45"/>
+    ${[[130,80,6],[160,70,4],[170,100,7],[140,112,5],[122,98,3],[158,118,3],[176,80,3]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${I}"/>`).join('')}
+    <circle cx="214" cy="120" r="22" fill="none" stroke="${I}" stroke-width="7"/><line x1="230" y1="136" x2="258" y2="164" stroke="${I}" stroke-width="10" stroke-linecap="round"/>
+    <g transform="rotate(8 263 50)"><rect x="226" y="22" width="74" height="58" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <text x="263" y="42" text-anchor="middle" ${M} font-size="10" fill="${I}">ONLY</text><text x="263" y="72" text-anchor="middle" ${D} font-size="30" fill="${I}">1</text></g>`,
+  pump:(I,H,t)=>`<rect x="96" y="34" width="84" height="122" rx="6" fill="${I}"/><rect x="108" y="48" width="60" height="34" fill="${H}"/>
+    <text x="138" y="71" text-anchor="middle" ${M} font-size="15" fill="${I}">${t||'$108'}</text><rect x="112" y="96" width="52" height="8" fill="${H}" opacity=".5"/>
+    <rect x="86" y="152" width="104" height="10" fill="${I}"/>
+    <path d="M180 64C222 64 232 90 232 120" fill="none" stroke="${I}" stroke-width="7"/><path d="M222 118h22l6 24h-14z" fill="${I}"/>
+    <circle cx="276" cy="78" r="14" fill="none" stroke="${I}" stroke-width="5"/><polygon points="276,46 287,56 276,66 265,56" fill="${H}" stroke="${I}" stroke-width="3"/>`,
+  jerry:(I,H)=>{const c=(x,r)=>`<g transform="rotate(${r} ${x+30} 110)"><rect x="${x}" y="70" width="60" height="82" rx="6" fill="${I}"/>
+    <path d="M${x+12} 84L${x+48} 140M${x+48} 84L${x+12} 140" stroke="${H}" stroke-width="4" opacity=".75"/>
+    <rect x="${x+8}" y="54" width="26" height="16" rx="3" fill="none" stroke="${I}" stroke-width="5"/><rect x="${x+42}" y="58" width="12" height="12" fill="${I}"/></g>`;
+    return c(92,12)+c(168,-12)+`<path d="M160 50C140 36 138 20 150 16C156 14 160 20 160 24C160 20 164 14 170 16C182 20 180 36 160 50Z" fill="${H}" stroke="${I}" stroke-width="3"/>`},
+  dinar:(I,H)=>`<g transform="rotate(-8 160 94)"><rect x="62" y="48" width="196" height="92" fill="${H}" stroke="${I}" stroke-width="4"/>
+    <rect x="72" y="58" width="176" height="72" fill="none" stroke="${I}" stroke-width="2"/><ellipse cx="160" cy="94" rx="28" ry="24" fill="none" stroke="${I}" stroke-width="3"/>
+    <text x="84" y="80" ${M} font-size="10" fill="${I}">DINAR</text><text x="84" y="124" ${D} font-size="22" fill="${I}">1000</text></g>
+    <path d="M226 26v82h-20l34 42 34-42h-20V26z" fill="${I}" stroke="${H}" stroke-width="3"/>`,
+  cedar:(I,H,t)=>`<rect x="152" y="108" width="16" height="46" fill="${I}"/>
+    ${[[118,70,12],[96,56,11],[76,42,10],[58,28,9],[42,14,8]].map(([y,rx,ry])=>`<ellipse cx="160" cy="${y}" rx="${rx}" ry="${ry}" fill="${I}"/>`).join('')}
+    <rect x="96" y="150" width="128" height="8" fill="${I}"/>
+    <g transform="rotate(5 270 90)"><rect x="230" y="60" width="82" height="58" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <text x="271" y="84" text-anchor="middle" font-size="13" fill="${I}" letter-spacing="1">★★★★★</text><text x="271" y="104" text-anchor="middle" ${M} font-size="9" fill="${I}">${t||'"NOT IDEAL"'}</text></g>`,
+  cloud:(I,H)=>`<g fill="${I}"><circle cx="130" cy="78" r="26"/><circle cx="162" cy="62" r="32"/><circle cx="196" cy="80" r="24"/><rect x="104" y="78" width="116" height="26" rx="13"/></g>
+    ${drop(130,128,I,H)}${drop(166,140,I,H)}${drop(200,126,I,H)}
+    <text x="262" y="70" text-anchor="middle" ${D} font-size="44" fill="${I}">6×</text><text x="262" y="90" text-anchor="middle" ${M} font-size="9" fill="${I}">DOWNGRADED</text>`,
+  chip:(I,H)=>{let p='';for(let k=0;k<6;k++){const o=k%3===1?.22:1, a=58+k*14, b=128+k*13;
+      p+=`<g stroke="${I}" stroke-width="4" opacity="${o}"><line x1="100" y1="${a}" x2="118" y2="${a}"/><line x1="202" y1="${a}" x2="220" y2="${a}"/><line x1="${b}" y1="30" x2="${b}" y2="48"/><line x1="${b}" y1="132" x2="${b}" y2="150"/></g>`;}
+    return p+`<rect x="118" y="48" width="84" height="84" rx="6" fill="${I}"/><rect x="132" y="62" width="56" height="56" fill="none" stroke="${H}" stroke-width="2" opacity=".6"/>
+    <text x="160" y="106" text-anchor="middle" ${D} font-size="42" fill="${H}">?</text>
+    <text x="256" y="56" ${M} font-size="18" fill="${I}" opacity=".6">?</text><text x="272" y="100" ${M} font-size="13" fill="${I}" opacity=".4">?</text><text x="48" y="120" ${M} font-size="15" fill="${I}" opacity=".5">?</text>`},
+  tv:(I,H,t)=>`<path d="M140 46L118 14M180 46L204 16" stroke="${I}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M112 148L102 164M208 148L218 164" stroke="${I}" stroke-width="5" stroke-linecap="round"/>
+    <rect x="84" y="44" width="152" height="106" rx="12" fill="${I}"/><rect x="98" y="58" width="100" height="78" rx="8" fill="${H}"/>
+    <circle cx="218" cy="78" r="7" fill="${H}"/><circle cx="218" cy="104" r="7" fill="${H}"/>
+    <text x="148" y="110" text-anchor="middle" ${D} font-size="32" fill="${I}">${t||'S2?'}</text>
+    <g transform="rotate(-35 272 74)"><rect x="246" y="48" width="52" height="26" rx="4" fill="${H}" stroke="${I}" stroke-width="4"/><rect x="268" y="74" width="8" height="60" fill="${I}"/></g>`,
+  croissant:(I,H)=>{const f=flame(124,104,58,I)+flame(160,104,78,I)+flame(196,104,58,I)+flame(124,104,30,H)+flame(160,104,42,H)+flame(196,104,30,H);
+    const seg=[0,4,1,3,2].map(k=>{const a=(200+k*35)*Math.PI/180, x=160+70*Math.cos(a), y=152+70*Math.sin(a), rx=[16,22,28,22,16][k];
+      return `<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="${rx}" ry="${(rx*.72).toFixed(1)}" transform="rotate(${200+k*35+90} ${x.toFixed(1)} ${y.toFixed(1)})" fill="${H}" stroke="${I}" stroke-width="4"/>`;}).join('');
+    return f+seg},
+  train:(I,H,t)=>`<path d="M10 94H70M20 114H86M6 132H58" stroke="${I}" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 86H220C268 86 300 112 308 140H60Z" fill="${I}"/><path d="M84 98H236C254 100 266 108 274 116H84Z" fill="${H}"/>
+    <line x1="40" y1="152" x2="316" y2="152" stroke="${I}" stroke-width="4"/>
+    ${Array.from({length:13},(_,k)=>`<rect x="${48+k*21}" y="146" width="6" height="14" fill="${I}"/>`).join('')}
+    <text x="200" y="52" text-anchor="middle" ${M} font-size="13" fill="${I}">${t||'−0.2% DOOM'}</text>`
+};
+ART.plane = (I,H,t)=>`<path d="M52 96L36 56H58L86 96Z" fill="${I}"/>
+    <path d="M160 96L132 66H152L198 96Z" fill="${I}" opacity=".55"/>
+    <path d="M50 96H250C276 96 296 102 296 108C296 114 276 120 250 120H50L38 108Z" fill="${I}"/>
+    ${Array.from({length:9},(_,k)=>`<rect x="${84+k*17}" y="102" width="8" height="7" rx="2" fill="${H}"/>`).join('')}
+    <path d="M150 114L112 160H138L198 114Z" fill="${I}"/>
+    <g transform="rotate(6 262 46)"><rect x="224" y="14" width="76" height="62" fill="${H}" stroke="${I}" stroke-width="3"/><rect x="224" y="14" width="76" height="15" fill="${I}"/>
+    <text x="262" y="64" text-anchor="middle" ${D} font-size="24" fill="${I}">${t||'2027'}</text></g>`;
+ART.phone = (I,H)=>`<rect x="112" y="18" width="96" height="152" rx="14" fill="${I}"/><rect x="120" y="34" width="80" height="116" rx="4" fill="${H}"/>
+    <rect x="128" y="46" width="64" height="44" rx="6" fill="none" stroke="${I}" stroke-width="2"/>
+    <text x="160" y="72" text-anchor="middle" ${M} font-size="7.5" fill="${I}">MISBEHAVING</text>
+    <path d="M130 104h60M130 116h60M130 128h40" stroke="${I}" stroke-width="3" opacity=".5"/>
+    <circle cx="160" cy="160" r="5" fill="${H}"/>
+    ${burst(256,64,32,9,H,I)}<text x="256" y="76" text-anchor="middle" ${D} font-size="32" fill="${I}">!</text>`;
+ART.gold = (I,H)=>{const bar=(x,y)=>`<path d="M${x} ${y}h62l12 26h-86z" fill="${H}" stroke="${I}" stroke-width="3"/><text x="${x+31}" y="${y+19}" text-anchor="middle" ${M} font-size="10" fill="${I}">Au</text>`;
+    return bar(72,128)+bar(160,128)+bar(116,100)+`<rect x="40" y="154" width="240" height="8" fill="${I}"/>
+    <text x="160" y="62" text-anchor="middle" ${D} font-size="40" fill="${I}">$4,210</text>
+    <path d="M262 92V40M248 56l14-16 14 16" fill="none" stroke="${I}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`};
+ART.folder = (I,H)=>`<path d="M70 52h56l12 12h112v96H70Z" fill="${H}" stroke="${I}" stroke-width="4"/>
+    <path d="M86 92h80M86 106h120M86 120h100" stroke="${I}" stroke-width="3" opacity=".4"/>
+    <g transform="rotate(-10 196 120)"><rect x="140" y="104" width="114" height="36" fill="none" stroke="${I}" stroke-width="4"/>
+    <text x="197" y="130" text-anchor="middle" ${D} font-size="22" fill="${I}">EVIDENCE?</text></g>
+    <text x="276" y="68" ${D} font-size="40" fill="${I}">?</text><text x="40" y="150" ${D} font-size="28" fill="${I}" opacity=".6">?</text>`;
+ART.ballot = (I,H)=>`<g transform="rotate(-8 160 60)"><rect x="140" y="20" width="44" height="64" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <path d="M150 50l8 10 16-20" fill="none" stroke="${I}" stroke-width="4" stroke-linecap="round"/></g>
+    <rect x="96" y="88" width="128" height="72" fill="${I}"/><rect x="128" y="84" width="64" height="8" fill="${H}" stroke="${I}" stroke-width="2"/>
+    <text x="160" y="134" text-anchor="middle" ${M} font-size="12" fill="${H}">VOTE</text>
+    <text x="262" y="122" text-anchor="middle" ${D} font-size="70" fill="${I}">?</text>`;
+
+function plate(s){
+  const t = tier(s.doom), dark = TIERS.indexOf(t) >= 3, I = dark ? '#fff' : '#141414', H = dark ? '#141414' : '#fff';
+  return `<figure class="plate" style="--tier:${col(t)}"><svg viewBox="0 0 320 180" aria-hidden="true">${ART[s.art](I,H,s.t)}</svg><span class="badge">DOOM ${s.doom}</span></figure>`;
+}
+
+// Gauge
+const CX=200, CY=200, R=150;
+const pt = (v, r) => { const a = Math.PI*(1 - v/100); return [CX + r*Math.cos(a), CY - r*Math.sin(a)]; };
+const arcs = document.getElementById('arcs');
+[0,20,40,60,80].forEach((start,i) => {
+  const end = start + 20, gap = i < 4 ? .6 : 0;
+  const [x1,y1] = pt(start + (i?.6:0), R), [x2,y2] = pt(end - gap, R);
+  const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+  p.setAttribute('d', `M${x1.toFixed(1)} ${y1.toFixed(1)} A${R} ${R} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`);
+  p.setAttribute('stroke', col(TIERS[i])); arcs.appendChild(p);
+});
+const ticks = document.getElementById('ticks');
+for (let v=0; v<=100; v+=10){
+  const [a,b] = pt(v, R+20), [c,d] = pt(v, R+26);
+  const l = document.createElementNS('http://www.w3.org/2000/svg','line');
+  l.setAttribute('x1',a);l.setAttribute('y1',b);l.setAttribute('x2',c);l.setAttribute('y2',d);
+  l.setAttribute('stroke','var(--ink2)'); l.setAttribute('stroke-width', v%50===0?2:1); ticks.appendChild(l);
+  if (v%25===0){
+    const [tx,ty] = pt(v, R+40);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',tx); t.setAttribute('y',ty+4); t.setAttribute('text-anchor', v<50?'end':v>50?'start':'middle');
+    if (v===0||v===100) t.setAttribute('text-anchor','middle');
+    t.textContent = v; ticks.appendChild(t);
+  }
+}
+[["fine",8],["doomed",92]].forEach(([w,v])=>{
+  const [tx,ty] = pt(v, R-38);
+  const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+  t.setAttribute('x',tx); t.setAttribute('y',ty); t.setAttribute('text-anchor','middle');
+  t.setAttribute('font-size','11'); t.textContent = w.toUpperCase(); ticks.appendChild(t);
+});
+document.getElementById('needle').style.setProperty('--ang', (-90 + overall*1.8) + 'deg');
+
+// Ticker
+const tickTxt = STORIES.map(s => `<em>${s.doom}</em>${s.h}`).join('&nbsp;&nbsp;&nbsp;///&nbsp;&nbsp;&nbsp;');
+document.getElementById('tick').innerHTML = tickTxt + '&nbsp;&nbsp;&nbsp;///&nbsp;&nbsp;&nbsp;' + tickTxt + '&nbsp;&nbsp;&nbsp;///&nbsp;&nbsp;&nbsp;';
+
+// Legend
+document.getElementById('legend').innerHTML = TIERS.map((t,i)=>
+  `<span><i style="background:${col(t)}"></i>${i*20}–${i===4?100:i*20+19} ${t.label}</span>`).join('');
+
+// Filters + render
+const desks = ["All", ...new Set(STORIES.map(s=>s.desk))];
+let desk = "All", order = "doom";
+try { const s = JSON.parse(localStorage.getItem('darktimes-prefs')||'{}'); if (desks.includes(s.desk)) desk = s.desk; if (s.order) order = s.order; } catch(e){}
+const save = () => { try { localStorage.setItem('darktimes-prefs', JSON.stringify({desk, order})); } catch(e){} };
+
+const chips = document.getElementById('chips');
+chips.innerHTML = desks.map(d => `<button data-desk="${d}" aria-pressed="${d===desk}">${d}</button>`).join('');
+chips.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  desk = b.dataset.desk; chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b)); save(); render();
+});
+const sd = document.getElementById('sort-doom'), sc = document.getElementById('sort-calm');
+const setSort = o => { order = o; sd.setAttribute('aria-pressed', o==='doom'); sc.setAttribute('aria-pressed', o==='calm'); save(); render(); };
+sd.onclick = () => setSort('doom'); sc.onclick = () => setSort('calm');
+sd.setAttribute('aria-pressed', order==='doom'); sc.setAttribute('aria-pressed', order==='calm');
+
+function card(s, lead){
+  const t = tier(s.doom), n = Math.round(s.doom/10);
+  const cells = Array.from({length:10},(_,i)=>`<i style="${i<n?`background:${col(TIERS[Math.min(4,Math.floor(i/2))])}`:''}"></i>`).join('');
+  return `<article class="card${lead?' lead':''}">${plate(s)}<div class="body">
+    <div class="kick"><b>${s.desk}</b><span>${s.region}</span></div>
+    <h3>${s.h}</h3>
+    <p class="real"><strong>What actually happened</strong>${s.real}</p>
+    <div class="meter" aria-label="World-end meter: ${s.doom} out of 100, ${t.label}">
+      <div class="cells" aria-hidden="true">${cells}</div>
+      <span class="score">${s.doom}</span>
+      <span class="verdict" style="background:${col(t)}">${t.label}</span>
+    </div>
+    <div class="src"><span class="srccount">${s.src.length} source${s.src.length>1?'s':''}</span>${s.src.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n} ↗</a>`).join('')}</div>
+  </div></article>`;
+}
+function render(){
+  let list = STORIES.filter(s => desk==="All" || s.desk===desk);
+  list.sort((a,b) => order==='doom' ? b.doom-a.doom : a.doom-b.doom);
+  document.getElementById('grid').innerHTML = list.map((s,i)=>card(s, i===0 && list.length>1 && list.length%2===1)).join('');
+}
+render();
+</script>
+
+</body>
+</html>
