@@ -168,64 +168,76 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 13–14 October 2026. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 13–14 October 2026, updated Wednesday evening. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {desk:"Middle East", region:"Strait of Hormuz", doom:85, art:"ship",
-   h:"Iran Says It's Hitting Five “Smuggling Ships” a Night, Running Hormuz Like a Nightclub Door",
-   real:"At least three vessels were struck by unidentified projectiles in the strait on Monday. Iranian official Mohsen Rezaei said Iranian forces hit an average of five ships a night, apparently referring to US-escorted oil shipments, while Iran keeps up its blockade.",
-   src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"]]},
+  {desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
+   h:"Iran Tells Ships to Keep Location On and Check In First, Like an Overprotective Parent With Missiles",
+   real:"UK maritime monitors logged 15 attacks on ships from 6 to 14 October, 11 of them in the last four days, and daily oil flows through the strait fell from about 20.8 million barrels on 8 October to 2.9 million on 11 October. Iran deployed new naval surveillance units and told ships to keep transponders on and coordinate with its forces.",
+   src:[["Al Jazeera","https://aljazeera.com/news/2026/10/14/iran-steps-up-hormuz-surveillance-attacks-soar-oil-flows-crash-again"],["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
   {desk:"Middle East", region:"Saudi Arabia", doom:80, art:"derrick",
-   h:"Houthis Hit an Aramco Office Building, Accidentally Giving Middle Management a Day Off",
-   real:"A strike caused a small fire at an Aramco administrative building in Dhahran, with no injuries reported. Debris from intercepted missiles injured four people and damaged 15 homes in Riyadh, and the Saudi-led coalition hit Houthi energy terminals and fuel reserves in Yemen.",
-   src:[["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+   h:"Houthis Hit Aramco's Headquarters, Accidentally Giving Middle Management a Day Off",
+   real:"A Houthi strike hit an Aramco administrative building in Dhahran, causing a small fire with no injuries reported. The Houthis say they'll keep targeting Saudi airports and oil sites, and the Saudi-led coalition says it intercepted another ballistic missile aimed at Riyadh.",
+   src:[["CNN","https://www.cnn.com/2026/10/13/middleeast/saudi-strikes-houthi-fuel-depot-latam-intl"],["Al Jazeera","https://www.aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
+  {desk:"Middle East", region:"Yemen", doom:72, art:"bowl",
+   h:"No Joke on This One: Fighting Cuts Off Food Aid to 800,000 People in Yemen",
+   real:"The World Food Programme warns the escalating conflict has cut off lifesaving food aid to 800,000 people, as heavy fighting overwhelms hospitals.",
+   src:[["Al Jazeera","https://www.aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
   {desk:"Middle East", region:"USA / Yemen", doom:72, art:"phone",
    h:"Trump Says the Houthis Are “Misbehaving,” Weighs Sending Them to Their Room by Aircraft Carrier",
    real:"Trump accused the Houthis of targeting Saudi infrastructure to push up energy prices before the US midterms, and said they re-emerged probably at Iran's behest. He hasn't said whether the US will join the Saudi strikes; the Houthis have threatened a painful response if it does.",
-   src:[["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"]]},
-  {desk:"World", region:"Ukraine / Russia", doom:68, art:"missile",
-   h:"Kremlin on Trump's Energy Ceasefire: “Contacts Continue,” Which Is Diplomat for “lol”",
-   real:"Russia hasn't confirmed the energy ceasefire Trump announced on Sunday, and fired more than 100 weapons at Ukraine from Monday evening. Zelenskyy said partners gave no warning of five ballistic missiles that hit Kyiv; Trump said the US hasn't stopped sharing intelligence.",
-   src:[["PBS NewsHour / AP","https://www.pbs.org/newshour/world/ukraine-had-no-intelligence-from-partners-about-missiles-headed-to-kyiv-zelenskyy-says"]]},
-  {desk:"World", region:"Horn of Africa", doom:66, art:"drone",
-   h:"Ethiopia and Eritrea Skip the Group Chat, Go Straight to Drones",
-   real:"Ethiopian drone strikes hit Eritrean vehicles around Adigrat days after Ethiopia expelled Eritrean diplomats and Eritrea cut ties. Separate suspected drone explosions were reported in Addis Ababa.",
-   src:[["Euronews","https://www.euronews.com/news/international"],["Wikipedia: Oct 2026","https://en.wikipedia.org/wiki/Portal:Current_events/October_2026"]]},
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
+  {desk:"World", region:"Ukraine / Russia", doom:70, art:"missile",
+   h:"So Much for the Energy Ceasefire: Moscow Keeps “Continuing Contacts,” Mostly With Ukraine's Power Grid",
+   real:"Zelenskyy said Russia fired more than 120 drones and 39 ballistic missiles at Kyiv and Kharkiv, leaving over 600,000 people without power. The Kremlin still hasn't confirmed the energy ceasefire Trump announced, and Zelenskyy is in London meeting PM Andy Burnham about new UK support.",
+   src:[["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"],["PBS NewsHour / AP","https://www.pbs.org/newshour/world/ukraine-had-no-intelligence-from-partners-about-missiles-headed-to-kyiv-zelenskyy-says"]]},
   {desk:"Middle East", region:"Riyadh", doom:55, art:"plane", t:"2027",
    h:"Delta Pushes Riyadh Flights to 2027, Joining Everyone's “Maybe Next Year” Pile",
-   real:"Saudi authorities suspended operations at Riyadh's King Khalid airport through 17 October after a deadly Houthi strike, and are investigating why air defences failed. US government staff now need special authorisation to use Saudi airports, and Delta postponed its Atlanta–Riyadh launch to March 2027.",
+   real:"Riyadh's King Khalid airport is closed through 17 October after a deadly Houthi strike, and Saudi Arabia is investigating why air defences failed. US government staff now need special authorisation to use Saudi airports, and Delta postponed its Atlanta–Riyadh launch to March 2027.",
    src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["Naharnet","https://www.naharnet.com/"]]},
-  {desk:"Money", region:"Global", doom:52, art:"pump", t:"$105",
-   h:"Brent Slips to $105 a Barrel, Which Is Apparently What a Bargain Looks Like Now",
-   real:"Brent eased to about $105 on Wednesday as the US said it helped move over 19 million barrels through Hormuz and Saudi output rose, offset by fresh Houthi attacks. It's still up about 70% on a year ago.",
-   src:[["Trading Economics","https://tradingeconomics.com/commodity/brent-crude-oil"],["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"]]},
-  {desk:"World", region:"UK / Iran", doom:50, art:"folder",
+  {desk:"Money", region:"Global", doom:54, art:"pump", t:"$106",
+   h:"Brent Climbs Back to $106, Cancelling This Morning's “Bargain” Before Lunch",
+   real:"Brent rose to $106.58 a barrel on Wednesday after closing at $105.69, as attacks on Hormuz shipping picked up again. US crude settled at $94.14.",
+   src:[["Al Jazeera","https://aljazeera.com/news/2026/10/14/iran-steps-up-hormuz-surveillance-attacks-soar-oil-flows-crash-again"],["Trading Economics","https://tradingeconomics.com/commodity/brent-crude-oil"]]},
+  {desk:"World", region:"UK / Iran", doom:50, art:"folder", t:"EVIDENCE?",
    h:"Iran Demands Receipts Before Being Accused of Plotting, Like a Very Normal Customer",
    real:"Iran told Britain's ambassador it could reconsider relations unless the UK shows evidence tying it to an alleged plot against RAF Fairford. PM Andy Burnham said the plot was almost certainly directed by the Revolutionary Guard; seven men were arrested and released on bail, none charged.",
    src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+  {desk:"World", region:"Taiwan / China", doom:48, art:"cloud", t:"SPLASH", t2:"CONSEQUENCES?",
+   h:"Taiwan Hoses Down a Chinese Fishing Boat; Beijing Threatens “Consequences,” Towels Not Ruled Out",
+   real:"Taiwan's coast guard used a water cannon on a Chinese fishing boat near the Pratas Islands, and China's Taiwan Affairs Office said Taiwan must bear the consequences.",
+   src:[["Rio Times Asia Brief","https://www.riotimesonline.com/asia-intelligence-brief-wednesday-october-14-2026/"]]},
+  {desk:"Money", region:"USA", doom:45, art:"receipt",
+   h:"US Inflation Climbs to 3.7%, Arriving Right Before the Midterms Like an Uninvited Plus-One",
+   real:"Consumer prices rose 3.7% from a year earlier in September, an acceleration in the last inflation report before the November midterm elections.",
+   src:[["CNN","https://www.cnn.com/2026/10/14/economy/us-cpi-inflation-september"],["Washington Times","https://www.washingtontimes.com/news/2026/oct/14/inflation-accelerates-37-final-consumer-price-report-midterm/"]]},
   {desk:"Middle East", region:"Lebanon", doom:42, art:"cedar", t:"BUSY WEEK",
    h:"Lebanon Books Two Military Meetings With Israel and a Qatari Visit; Its Calendar Is Now Worse Than Yours",
    real:"A Lebanon–Israel military meeting is set for 20 and 22 October, and Qatar's prime minister is expected in Beirut on Thursday. President Aoun also condemned the Houthi attacks on Saudi Arabia in a call with the crown prince.",
    src:[["Naharnet","https://www.naharnet.com/"]]},
-  {desk:"Money", region:"Markets", doom:40, art:"gold",
-   h:"Gold Hits $4,210 an Ounce as Investors Seek the Ancient Safety of Shiny Rocks",
-   real:"Gold rose to about $4,210 an ounce while the 10-year Treasury yield hovered near 5.2%, just off its highest level in more than 24 years. September inflation data is due Wednesday.",
-   src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"]]},
+  {desk:"Money", region:"China / EU", doom:34, art:"boxes",
+   h:"China's Exports Jump 36%, and the IMF Gently Suggests It Try Buying Something Itself",
+   real:"China's September exports rose 36.3% on a year earlier for a $133.5 billion trade surplus, and IMF chief Kristalina Georgieva urged Beijing to lean more on domestic consumption. EU leaders discuss trade with China at their 15–16 October summit.",
+   src:[["Rio Times Asia Brief","https://www.riotimesonline.com/asia-intelligence-brief-wednesday-october-14-2026/"],["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"]]},
   {desk:"World", region:"Israel / USA", doom:35, art:"ballot",
    h:"Trump Won't Say Who He Wants in Israel's Election; Netanyahu Checks His Phone Again",
    real:"Asked about Israel's 27 October election, Trump said he hadn't even thought about endorsing anyone, after earlier sidestepping a question on backing Netanyahu's re-election.",
    src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
+  {desk:"Weird", region:"Germany", doom:30, art:"folder", t:"CASE OPEN",
+   h:"Nord Stream Bombing Finally Gets Its Day in Court, Four Years After the Pipeline Got Its Day on the Seabed",
+   real:"A trial opened in Hamburg against a Ukrainian man, identified as Serhii K., over the September 2022 Nord Stream pipeline explosions.",
+   src:[["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"],["US News / Reuters","https://www.usnews.com/news/world"]]},
   {desk:"Weird", region:"Washington", doom:28, art:"tv", t:"ON AIR",
    h:"Judge Tells White House It Can't Just Mute CNN and Politico From the Group Chat",
    real:"Federal judge Timothy Kelly extended White House press access for CNN, MS Now and Politico, which the administration had barred in September.",
    src:[["inkl news brief","https://www.inkl.com/news/latest-news-bulletin-october-14th-2026-morning"]]},
   {desk:"Tech", region:"US / China", doom:26, art:"chip",
    h:"Memory Stocks Fall for a Second Day and Can't Quite Remember Why",
-   real:"Micron, Sandisk, Seagate and Western Digital slid again after Chinese chipmaker CXMT said it plans to produce next-generation memory chips. Big US banks reported earnings the same morning to a mixed reaction.",
+   real:"Micron, Sandisk, Seagate and Western Digital slid again after Chinese chipmaker CXMT said it plans to produce next-generation memory chips.",
    src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"],["TheStreet","https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"]]},
   {desk:"Good News", region:"Portugal", doom:4, art:"train", t:"−0.2% DOOM",
    h:"Portugal Starts Building a Fast Train, Single-Handedly Lowering Global Doom by 0.2%",
@@ -318,9 +330,9 @@ const ART = {
     <rect x="96" y="150" width="128" height="8" fill="${I}"/>
     <g transform="rotate(5 270 90)"><rect x="230" y="60" width="82" height="58" fill="${H}" stroke="${I}" stroke-width="3"/>
     <text x="271" y="84" text-anchor="middle" font-size="13" fill="${I}" letter-spacing="1">★★★★★</text><text x="271" y="104" text-anchor="middle" ${M} font-size="9" fill="${I}">${t||'"NOT IDEAL"'}</text></g>`,
-  cloud:(I,H)=>`<g fill="${I}"><circle cx="130" cy="78" r="26"/><circle cx="162" cy="62" r="32"/><circle cx="196" cy="80" r="24"/><rect x="104" y="78" width="116" height="26" rx="13"/></g>
+  cloud:(I,H,t,t2)=>`<g fill="${I}"><circle cx="130" cy="78" r="26"/><circle cx="162" cy="62" r="32"/><circle cx="196" cy="80" r="24"/><rect x="104" y="78" width="116" height="26" rx="13"/></g>
     ${drop(130,128,I,H)}${drop(166,140,I,H)}${drop(200,126,I,H)}
-    <text x="262" y="70" text-anchor="middle" ${D} font-size="44" fill="${I}">6×</text><text x="262" y="90" text-anchor="middle" ${M} font-size="9" fill="${I}">DOWNGRADED</text>`,
+    <text x="262" y="70" text-anchor="middle" ${D} font-size="44" fill="${I}">${t||'6×'}</text><text x="262" y="90" text-anchor="middle" ${M} font-size="9" fill="${I}">${t2||'DOWNGRADED'}</text>`,
   chip:(I,H)=>{let p='';for(let k=0;k<6;k++){const o=k%3===1?.22:1, a=58+k*14, b=128+k*13;
       p+=`<g stroke="${I}" stroke-width="4" opacity="${o}"><line x1="100" y1="${a}" x2="118" y2="${a}"/><line x1="202" y1="${a}" x2="220" y2="${a}"/><line x1="${b}" y1="30" x2="${b}" y2="48"/><line x1="${b}" y1="132" x2="${b}" y2="150"/></g>`;}
     return p+`<rect x="118" y="48" width="84" height="84" rx="6" fill="${I}"/><rect x="132" y="62" width="56" height="56" fill="none" stroke="${H}" stroke-width="2" opacity=".6"/>
@@ -359,11 +371,27 @@ ART.gold = (I,H)=>{const bar=(x,y)=>`<path d="M${x} ${y}h62l12 26h-86z" fill="${
     return bar(72,128)+bar(160,128)+bar(116,100)+`<rect x="40" y="154" width="240" height="8" fill="${I}"/>
     <text x="160" y="62" text-anchor="middle" ${D} font-size="40" fill="${I}">$4,210</text>
     <path d="M262 92V40M248 56l14-16 14 16" fill="none" stroke="${I}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`};
-ART.folder = (I,H)=>`<path d="M70 52h56l12 12h112v96H70Z" fill="${H}" stroke="${I}" stroke-width="4"/>
+ART.folder = (I,H,t)=>`<path d="M70 52h56l12 12h112v96H70Z" fill="${H}" stroke="${I}" stroke-width="4"/>
     <path d="M86 92h80M86 106h120M86 120h100" stroke="${I}" stroke-width="3" opacity=".4"/>
     <g transform="rotate(-10 196 120)"><rect x="140" y="104" width="114" height="36" fill="none" stroke="${I}" stroke-width="4"/>
-    <text x="197" y="130" text-anchor="middle" ${D} font-size="22" fill="${I}">EVIDENCE?</text></g>
+    <text x="197" y="130" text-anchor="middle" ${D} font-size="22" fill="${I}">${t||'EVIDENCE?'}</text></g>
     <text x="276" y="68" ${D} font-size="40" fill="${I}">?</text><text x="40" y="150" ${D} font-size="28" fill="${I}" opacity=".6">?</text>`;
+ART.bowl = (I,H)=>`<path d="M90 98h140a70 56 0 0 1-140 0Z" fill="${I}"/>
+    <ellipse cx="160" cy="98" rx="70" ry="11" fill="${H}" stroke="${I}" stroke-width="4"/>
+    <rect x="138" y="150" width="44" height="8" fill="${I}"/>
+    <line x1="246" y1="38" x2="206" y2="94" stroke="${I}" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="252" cy="30" rx="11" ry="15" transform="rotate(35 252 30)" fill="${H}" stroke="${I}" stroke-width="4"/>`;
+ART.boxes = (I,H)=>{const box=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${H}" stroke="${I}" stroke-width="3"/><path d="M${x+w/2} ${y}v${h/3}" stroke="${I}" stroke-width="3"/><path d="M${x+8} ${y+h-12}h${w/3}" stroke="${I}" stroke-width="2" opacity=".5"/>`;
+    return box(64,106,74,52)+box(142,106,74,52)+box(102,58,74,48)+`<rect x="40" y="158" width="210" height="8" fill="${I}"/>
+    <text x="262" y="78" text-anchor="middle" ${D} font-size="34" fill="${I}">+36%</text>
+    <path d="M262 132V94M250 106l12-12 12 12" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`};
+ART.receipt = (I,H)=>`<path d="M110 16h100v140l-10 8-10-8-10 8-10-8-10 8-10-8-10 8-10-8-10 8-10-8Z" fill="${H}" stroke="${I}" stroke-width="3"/>
+    <path d="M124 36h72M124 50h52M124 64h64M124 78h44" stroke="${I}" stroke-width="3" opacity=".45"/>
+    <path d="M124 96h72" stroke="${I}" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="124" y="112" ${M} font-size="9" fill="${I}">TOTAL</text>
+    <text x="196" y="140" text-anchor="end" ${D} font-size="30" fill="${I}">3.7%</text>
+    <path d="M262 46V92M250 58l12-12 12 12" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M44 120V74M32 86l12-12 12 12" fill="none" stroke="${I}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>`;
 ART.ballot = (I,H)=>`<g transform="rotate(-8 160 60)"><rect x="140" y="20" width="44" height="64" fill="${H}" stroke="${I}" stroke-width="3"/>
     <path d="M150 50l8 10 16-20" fill="none" stroke="${I}" stroke-width="4" stroke-linecap="round"/></g>
     <rect x="96" y="88" width="128" height="72" fill="${I}"/><rect x="128" y="84" width="64" height="8" fill="${H}" stroke="${I}" stroke-width="2"/>
@@ -372,7 +400,7 @@ ART.ballot = (I,H)=>`<g transform="rotate(-8 160 60)"><rect x="140" y="20" width
 
 function plate(s){
   const t = tier(s.doom), dark = TIERS.indexOf(t) >= 3, I = dark ? '#fff' : '#141414', H = dark ? '#141414' : '#fff';
-  return `<figure class="plate" style="--tier:${col(t)}"><svg viewBox="0 0 320 180" aria-hidden="true">${ART[s.art](I,H,s.t)}</svg><span class="badge">DOOM ${s.doom}</span></figure>`;
+  return `<figure class="plate" style="--tier:${col(t)}"><svg viewBox="0 0 320 180" aria-hidden="true">${ART[s.art](I,H,s.t,s.t2)}</svg><span class="badge">DOOM ${s.doom}</span></figure>`;
 }
 
 // Gauge
