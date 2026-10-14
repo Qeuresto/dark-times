@@ -169,81 +169,89 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 13–14 October 2026, updated Wednesday evening. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 13–14 October 2026, updated Wednesday evening. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
+  {d:"2026-10-14", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
    h:"Iran Tells Ships to Keep Location On and Check In First, Like an Overprotective Parent With Missiles",
    real:"UK maritime monitors logged 15 attacks on ships from 6 to 14 October, 11 of them in the last four days, and daily oil flows through the strait fell from about 20.8 million barrels on 8 October to 2.9 million on 11 October. Iran deployed new naval surveillance units and told ships to keep transponders on and coordinate with its forces.",
    src:[["Al Jazeera","https://aljazeera.com/news/2026/10/14/iran-steps-up-hormuz-surveillance-attacks-soar-oil-flows-crash-again"],["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
-  {desk:"Middle East", region:"Saudi Arabia", doom:80, art:"derrick",
+  {d:"2026-10-14", desk:"Middle East", region:"Saudi Arabia", doom:80, art:"derrick",
    h:"Houthis Hit Aramco's Headquarters, Accidentally Giving Middle Management a Day Off",
    real:"A Houthi strike hit an Aramco administrative building in Dhahran, causing a small fire with no injuries reported. The Houthis say they'll keep targeting Saudi airports and oil sites, and the Saudi-led coalition says it intercepted another ballistic missile aimed at Riyadh.",
    src:[["CNN","https://www.cnn.com/2026/10/13/middleeast/saudi-strikes-houthi-fuel-depot-latam-intl"],["Al Jazeera","https://www.aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
-  {desk:"Middle East", region:"Yemen", doom:72, art:"bowl",
+  {d:"2026-10-14", desk:"Middle East", region:"Yemen", doom:72, art:"bowl",
    h:"No Joke on This One: Fighting Cuts Off Food Aid to 800,000 People in Yemen",
    real:"The World Food Programme warns the escalating conflict has cut off lifesaving food aid to 800,000 people, as heavy fighting overwhelms hospitals.",
    src:[["Al Jazeera","https://www.aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
-  {desk:"Middle East", region:"USA / Yemen", doom:72, art:"phone",
+  {d:"2026-10-14", desk:"Middle East", region:"USA / Yemen", doom:72, art:"phone",
    h:"Trump Says the Houthis Are “Misbehaving,” Weighs Sending Them to Their Room by Aircraft Carrier",
    real:"Trump accused the Houthis of targeting Saudi infrastructure to push up energy prices before the US midterms, and said they re-emerged probably at Iran's behest. He hasn't said whether the US will join the Saudi strikes; the Houthis have threatened a painful response if it does.",
    src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["Al Jazeera","https://aljazeera.com/news/liveblog/2026/10/14/iran-war-live-saudi-coalition-hits-houthi-sites-aramco-office-hit-in-east"]]},
-  {desk:"World", region:"Ukraine / Russia", doom:70, art:"missile",
+  {d:"2026-10-14", desk:"World", region:"Ukraine / Russia", doom:70, art:"missile",
    h:"So Much for the Energy Ceasefire: Moscow Keeps “Continuing Contacts,” Mostly With Ukraine's Power Grid",
    real:"Zelenskyy said Russia fired more than 120 drones and 39 ballistic missiles at Kyiv and Kharkiv, leaving over 600,000 people without power. The Kremlin still hasn't confirmed the energy ceasefire Trump announced, and Zelenskyy is in London meeting PM Andy Burnham about new UK support.",
    src:[["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"],["PBS NewsHour / AP","https://www.pbs.org/newshour/world/ukraine-had-no-intelligence-from-partners-about-missiles-headed-to-kyiv-zelenskyy-says"]]},
-  {desk:"Middle East", region:"Riyadh", doom:55, art:"plane", t:"2027",
+  {d:"2026-10-13", desk:"Middle East", region:"Riyadh", doom:55, art:"plane", t:"2027",
    h:"Delta Pushes Riyadh Flights to 2027, Joining Everyone's “Maybe Next Year” Pile",
    real:"Riyadh's King Khalid airport is closed through 17 October after a deadly Houthi strike, and Saudi Arabia is investigating why air defences failed. US government staff now need special authorisation to use Saudi airports, and Delta postponed its Atlanta–Riyadh launch to March 2027.",
    src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-saudi-arabia-houthi/"],["Naharnet","https://www.naharnet.com/"]]},
-  {desk:"Money", region:"Global", doom:54, art:"pump", t:"$106",
+  {d:"2026-10-14", desk:"Money", region:"Global", doom:54, art:"pump", t:"$106",
    h:"Brent Climbs Back to $106, Cancelling This Morning's “Bargain” Before Lunch",
    real:"Brent rose to $106.58 a barrel on Wednesday after closing at $105.69, as attacks on Hormuz shipping picked up again. US crude settled at $94.14.",
    src:[["Al Jazeera","https://aljazeera.com/news/2026/10/14/iran-steps-up-hormuz-surveillance-attacks-soar-oil-flows-crash-again"],["Trading Economics","https://tradingeconomics.com/commodity/brent-crude-oil"]]},
-  {desk:"World", region:"UK / Iran", doom:50, art:"folder", t:"EVIDENCE?",
+  {d:"2026-10-13", desk:"World", region:"UK / Iran", doom:50, art:"folder", t:"EVIDENCE?",
    h:"Iran Demands Receipts Before Being Accused of Plotting, Like a Very Normal Customer",
    real:"Iran told Britain's ambassador it could reconsider relations unless the UK shows evidence tying it to an alleged plot against RAF Fairford. PM Andy Burnham said the plot was almost certainly directed by the Revolutionary Guard; seven men were arrested and released on bail, none charged.",
    src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
-  {desk:"World", region:"Taiwan / China", doom:48, art:"cloud", t:"SPLASH", t2:"CONSEQUENCES?",
+  {d:"2026-10-14", desk:"World", region:"Taiwan / China", doom:48, art:"cloud", t:"SPLASH", t2:"CONSEQUENCES?",
    h:"Taiwan Hoses Down a Chinese Fishing Boat; Beijing Threatens “Consequences,” Towels Not Ruled Out",
    real:"Taiwan's coast guard used a water cannon on a Chinese fishing boat near the Pratas Islands, and China's Taiwan Affairs Office said Taiwan must bear the consequences.",
    src:[["Rio Times Asia Brief","https://www.riotimesonline.com/asia-intelligence-brief-wednesday-october-14-2026/"]]},
-  {desk:"Money", region:"USA", doom:45, art:"receipt",
+  {d:"2026-10-14", desk:"Money", region:"USA", doom:45, art:"receipt",
    h:"US Inflation Climbs to 3.7%, Arriving Right Before the Midterms Like an Uninvited Plus-One",
    real:"Consumer prices rose 3.7% from a year earlier in September, an acceleration in the last inflation report before the November midterm elections.",
    src:[["CNN","https://www.cnn.com/2026/10/14/economy/us-cpi-inflation-september"],["Washington Times","https://www.washingtontimes.com/news/2026/oct/14/inflation-accelerates-37-final-consumer-price-report-midterm/"]]},
-  {desk:"Middle East", region:"Lebanon", doom:42, art:"cedar", t:"BUSY WEEK",
+  {d:"2026-10-13", desk:"Middle East", region:"Lebanon", doom:42, art:"cedar", t:"BUSY WEEK",
    h:"Lebanon Books Two Military Meetings With Israel and a Qatari Visit; Its Calendar Is Now Worse Than Yours",
    real:"A Lebanon–Israel military meeting is set for 20 and 22 October, and Qatar's prime minister is expected in Beirut on Thursday. President Aoun also condemned the Houthi attacks on Saudi Arabia in a call with the crown prince.",
    src:[["Naharnet","https://www.naharnet.com/"]]},
-  {desk:"Money", region:"China / EU", doom:34, art:"boxes",
+  {d:"2026-10-14", desk:"Money", region:"China / EU", doom:34, art:"boxes",
    h:"China's Exports Jump 36%, and the IMF Gently Suggests It Try Buying Something Itself",
    real:"China's September exports rose 36.3% on a year earlier for a $133.5 billion trade surplus, and IMF chief Kristalina Georgieva urged Beijing to lean more on domestic consumption. EU leaders discuss trade with China at their 15–16 October summit.",
    src:[["Rio Times Asia Brief","https://www.riotimesonline.com/asia-intelligence-brief-wednesday-october-14-2026/"],["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"]]},
-  {desk:"World", region:"Israel / USA", doom:35, art:"ballot",
+  {d:"2026-10-13", desk:"World", region:"Israel / USA", doom:35, art:"ballot",
    h:"Trump Won't Say Who He Wants in Israel's Election; Netanyahu Checks His Phone Again",
    real:"Asked about Israel's 27 October election, Trump said he hadn't even thought about endorsing anyone, after earlier sidestepping a question on backing Netanyahu's re-election.",
    src:[["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
-  {desk:"Weird", region:"Germany", doom:30, art:"folder", t:"CASE OPEN",
+  {d:"2026-10-14", desk:"Weird", region:"Germany", doom:30, art:"folder", t:"CASE OPEN",
    h:"Nord Stream Bombing Finally Gets Its Day in Court, Four Years After the Pipeline Got Its Day on the Seabed",
    real:"A trial opened in Hamburg against a Ukrainian man, identified as Serhii K., over the September 2022 Nord Stream pipeline explosions.",
    src:[["Rio Times Europe Brief","https://www.riotimesonline.com/europe-intelligence-brief-wednesday-october-14-2026/"],["US News / Reuters","https://www.usnews.com/news/world"]]},
-  {desk:"Weird", region:"Washington", doom:28, art:"tv", t:"ON AIR",
+  {d:"2026-10-14", desk:"Weird", region:"Washington", doom:28, art:"tv", t:"ON AIR",
    h:"Judge Tells White House It Can't Just Mute CNN and Politico From the Group Chat",
    real:"Federal judge Timothy Kelly extended White House press access for CNN, MS Now and Politico, which the administration had barred in September.",
    src:[["inkl news brief","https://www.inkl.com/news/latest-news-bulletin-october-14th-2026-morning"]]},
-  {desk:"Tech", region:"US / China", doom:26, art:"chip",
+  {d:"2026-10-13", desk:"Tech", region:"US / China", doom:26, art:"chip",
    h:"Memory Stocks Fall for a Second Day and Can't Quite Remember Why",
    real:"Micron, Sandisk, Seagate and Western Digital slid again after Chinese chipmaker CXMT said it plans to produce next-generation memory chips.",
    src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"],["TheStreet","https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"]]},
-  {desk:"Good News", region:"Portugal", doom:4, art:"train", t:"−0.2% DOOM",
-   h:"Portugal Starts Building a Fast Train, Single-Handedly Lowering Global Doom by 0.2%",
-   real:"Construction has begun on Portugal's high-speed rail line between Lisbon and Porto.",
-   src:[["Euronews","https://www.euronews.com/video/2026/10/12/latest-news-bulletin-october-12th-2026-morning"]]}
+  {d:"2026-10-13", desk:"Money", region:"US / Russia", doom:48, art:"jerry",
+   h:"Trump and Putin Bond Over Their Shared Love of Diesel",
+   real:"Trump struck a deal with Putin on Friday to import Russian diesel, blaming Ukraine's refinery strikes for record US diesel prices. Washington temporarily eased restrictions on Russian diesel and Russia partially lifted its export limits, which helped oil prices dip.",
+   src:[["TheStreet","https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"],["PBS NewsHour / AP","https://www.pbs.org/newshour/world/ukraine-had-no-intelligence-from-partners-about-missiles-headed-to-kyiv-zelenskyy-says"],["FDD Overnight Brief","https://fdd.org/overnight-brief/october-13-2026"]]},
+  {d:"2026-10-13", desk:"Middle East", region:"Iraq", doom:47, art:"dinar",
+   h:"Iraq Devalues the Dinar, Joins the “My Currency Is Also Going Through Something” Support Group",
+   real:"Iraq devalued its currency as the Iran war keeps disrupting the routes it relies on to ship oil.",
+   src:[["Naharnet","https://www.naharnet.com/"]]},
+  {d:"2026-10-13", desk:"Money", region:"Markets", doom:40, art:"gold",
+   h:"Gold Hits $4,210 an Ounce as Investors Seek the Ancient Safety of Shiny Rocks",
+   real:"Gold rose to about $4,210 an ounce while the 10-year Treasury yield hovered near 5.2%, just off its highest level in more than 24 years.",
+   src:[["Yahoo Finance","https://finance.yahoo.com/markets/stocks/articles/stock-market-today-futures-mixed-104049191.html"]]}
 ];
 
 const TIERS = [
@@ -254,7 +262,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-10-14T18:59:00+04:00";
+const UPDATED = "2026-10-14T19:05:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
@@ -477,7 +485,7 @@ function card(s, lead){
   const t = tier(s.doom), n = Math.round(s.doom/10);
   const cells = Array.from({length:10},(_,i)=>`<i style="${i<n?`background:${col(TIERS[Math.min(4,Math.floor(i/2))])}`:''}"></i>`).join('');
   return `<article class="card${lead?' lead':''}">${plate(s)}<div class="body">
-    <div class="kick"><b>${s.desk}</b><span>${s.region}</span></div>
+    <div class="kick"><b>${s.desk}</b><span>${s.region}</span><span>${s.d ? new Date(s.d+"T12:00:00Z").toLocaleDateString("en-GB",{day:"numeric",month:"short"}) : ""}</span></div>
     <h3>${s.h}</h3>
     <p class="real"><strong>What actually happened</strong>${s.real}</p>
     <div class="meter" aria-label="World-end meter: ${s.doom} out of 100, ${t.label}">
