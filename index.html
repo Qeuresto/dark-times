@@ -159,7 +159,8 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="controls">
     <div class="chips" id="chips" role="group" aria-label="Filter by desk"></div>
     <div class="chips" role="group" aria-label="Sort">
-      <button id="sort-doom" aria-pressed="true">Most cursed first</button>
+      <button id="sort-fresh" aria-pressed="true">Fresh outta the oven</button>
+      <button id="sort-doom" aria-pressed="false">Most cursed first</button>
       <button id="sort-calm" aria-pressed="false">Ease me in</button>
     </div>
   </div>
@@ -188,6 +189,10 @@ const STORIES = [
    h:"Saudi Says It Shot Down a Missile Over Madinah; Houthis Call That a “Shameless Lie,” Fact-Check Pending",
    real:"The Saudi-led coalition said it intercepted a Houthi cruise missile over Madinah; the Houthis denied attacking that day. It follows a Houthi strike that set fire to Aramco's Dhahran headquarters, and Trump says he's considering joining the Saudi strikes, which the Houthis say would make US personnel targets.",
    src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-houthi-saudi-arabia-trump/"],["The National","https://www.thenationalnews.com/news/mena/2026/10/15/live-saudi-arabia-drone-houthis-yemen/"],["Fox News","https://www.foxnews.com/live-news/us-iran-war-donald-trump-oil-nuclear-sites-hormuz-strait-october-14"]]},
+  {d:"2026-10-15", desk:"Middle East", region:"Lebanon", doom:52, art:"folder", t:"FOUND IT",
+   h:"Hezbollah MP Confirms the Car Carrying Hundreds of Kilos of Explosives Was Theirs, Closing Lebanon's Least Fun Lost-and-Found Case",
+   real:"Hezbollah lawmaker Hassan Fadlallah said a vehicle seized by Lebanese security forces with hundreds of kilograms of explosives belonged to the group. The interior minister had said the car drew suspicion because of its heavy load.",
+   src:[["Iran International","https://www.iranintl.com/en/liveblog/202610105959"],["Naharnet","https://www.naharnet.com/"]]},
   {d:"2026-10-14", desk:"Middle East", region:"Yemen", doom:72, art:"bowl",
    h:"No Joke on This One: Fighting Cuts Off Food Aid to 800,000 People in Yemen",
    real:"The World Food Programme warns the escalating conflict has cut off lifesaving food aid to 800,000 people, as heavy fighting overwhelms hospitals.",
@@ -272,10 +277,6 @@ const STORIES = [
    h:"Texas AG Ken Paxton Filmed Partying in Dubai With Two Indicted Fugitives, Proving Everyone Ends Up Here Eventually",
    real:"The Wall Street Journal published video of Texas Attorney General Ken Paxton, the Republican Senate nominee, partying in Dubai with two indicted fugitive healthcare executives.",
    src:[["Democracy Now!","https://www.democracynow.org/2026/10/14/headlines"]]},
-  {d:"2026-10-15", desk:"Middle East", region:"Lebanon", doom:52, art:"folder", t:"FOUND IT",
-   h:"Hezbollah MP Confirms the Car Carrying Hundreds of Kilos of Explosives Was Theirs, Closing Lebanon's Least Fun Lost-and-Found Case",
-   real:"Hezbollah lawmaker Hassan Fadlallah said a vehicle seized by Lebanese security forces with hundreds of kilograms of explosives belonged to the group. The interior minister had said the car drew suspicion because of its heavy load.",
-   src:[["Iran International","https://www.iranintl.com/en/liveblog/202610105959"],["Naharnet","https://www.naharnet.com/"]]},
   {d:"2026-10-15", desk:"Tech", region:"South Korea / Japan", doom:46, art:"chip",
    h:"Korea's Kospi Drops 7% as Chip Stocks Discover Gravity",
    real:"South Korea's Kospi plunged 7%, led by SK Hynix and Samsung Electronics, and Japan's Nikkei fell 4.9% in a broad tech selloff after Wall Street's slide on hot US inflation.",
@@ -517,9 +518,10 @@ document.getElementById('legend').innerHTML = TIERS.map((t,i)=>
 
 // Filters + render
 const desks = ["All", ...new Set(STORIES.map(s=>s.desk))];
-let desk = "All", order = "doom";
-try { const s = JSON.parse(localStorage.getItem('darktimes-prefs')||'{}'); if (desks.includes(s.desk)) desk = s.desk; if (s.order) order = s.order; } catch(e){}
-const save = () => { try { localStorage.setItem('darktimes-prefs', JSON.stringify({desk, order})); } catch(e){} };
+const ORDERS = ["fresh","doom","calm"];
+let desk = "All", order = "fresh";
+try { const s = JSON.parse(localStorage.getItem('darktimes-prefs-v2')||'{}'); if (desks.includes(s.desk)) desk = s.desk; if (ORDERS.includes(s.order)) order = s.order; } catch(e){}
+const save = () => { try { localStorage.setItem('darktimes-prefs-v2', JSON.stringify({desk, order})); } catch(e){} };
 
 const chips = document.getElementById('chips');
 chips.innerHTML = desks.map(d => `<button data-desk="${d}" aria-pressed="${d===desk}">${d}</button>`).join('');
@@ -527,10 +529,11 @@ chips.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   desk = b.dataset.desk; chips.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x===b)); save(); render();
 });
-const sd = document.getElementById('sort-doom'), sc = document.getElementById('sort-calm');
-const setSort = o => { order = o; sd.setAttribute('aria-pressed', o==='doom'); sc.setAttribute('aria-pressed', o==='calm'); save(); render(); };
-sd.onclick = () => setSort('doom'); sc.onclick = () => setSort('calm');
-sd.setAttribute('aria-pressed', order==='doom'); sc.setAttribute('aria-pressed', order==='calm');
+const sortBtns = { fresh: document.getElementById('sort-fresh'), doom: document.getElementById('sort-doom'), calm: document.getElementById('sort-calm') };
+const markSort = () => ORDERS.forEach(o => sortBtns[o].setAttribute('aria-pressed', o===order));
+const setSort = o => { order = o; markSort(); save(); render(); };
+ORDERS.forEach(o => sortBtns[o].onclick = () => setSort(o));
+markSort();
 
 function card(s, lead){
   const t = tier(s.doom), n = Math.round(s.doom/10);
@@ -549,7 +552,11 @@ function card(s, lead){
 }
 function render(){
   let list = STORIES.filter(s => desk==="All" || s.desk===desk);
-  list.sort((a,b) => order==='doom' ? b.doom-a.doom : a.doom-b.doom);
+  // Fresh: newest report date first; same day keeps the editor's order (big Middle East and war stories lead)
+  const rank = new Map(STORIES.map((s,i)=>[s,i]));
+  list.sort((a,b) => order==='doom' ? b.doom-a.doom
+    : order==='calm' ? a.doom-b.doom
+    : (b.d||'').localeCompare(a.d||'') || rank.get(a)-rank.get(b));
   document.getElementById('grid').innerHTML = list.map((s,i)=>card(s, i===0 && list.length>1 && list.length%2===1)).join('');
 }
 render();
