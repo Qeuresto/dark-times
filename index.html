@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Wednesday, 14 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Saturday, 17 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -273,6 +273,7 @@ const UPDATED = "2026-10-17T09:55:00+04:00";
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
   const mins = Math.round((Date.now() - d) / 60000);
   const ago = mins < 1 ? "just now" : mins < 60 ? `${mins} min ago` : mins < 2880 ? `${Math.round(mins/60)}h ago` : `${Math.round(mins/1440)} days ago`;
+  document.getElementById("today").textContent = d.toLocaleDateString("en-GB", {timeZone:"Asia/Dubai", weekday:"long", day:"numeric", month:"long", year:"numeric"});
   const el = document.getElementById("updated");
   el.textContent = `Last updated ${when} (Dubai) · ${ago}`;
   el.title = d.toISOString();
