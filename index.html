@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Monday, 19 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Tuesday, 20 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -170,45 +170,69 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 18–19 October 2026, updated Monday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 19–20 October 2026, updated Tuesday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {d:"2026-10-19", desk:"Middle East", region:"Strait of Hormuz", doom:87, art:"ship",
+  {d:"2026-10-20", desk:"Middle East", region:"Lebanon / Israel", doom:55, art:"plane", t:"TPA",
+   h:"Lebanon and Israel Hold Military Talks in Tampa, Florida, Long Known as the Natural Home of Middle East Diplomacy",
+   real:"A Lebanese military delegation meets Israel in US-backed talks in Tampa on 20 October, pressing for an end to Israeli attacks in the south, further Israeli withdrawal and a Lebanese Army deployment to the border. Lebanon's foreign minister also told Iran this weekend to stop arming Hezbollah.",
+   src:[["VPP News","https://vppnews.substack.com/p/lebanon-alerts-aoun-confirms-lebanon"],["Reuters via Internazionale","https://www.internazionale.it/ultime-notizie-reuters/2026/10/17/lebanon-says-military-delegation-will-press-for-halt-to-israeli-attacks-at-us-talks"],["Israel Hayom","https://www.israelhayom.com/2026/10/18/lebanon-confronts-iran-demands-end-to-hezbollah-arms-shipments-and-interference/"]]},
+  {d:"2026-10-19", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
    h:"Iran Offers a Seven-Day Plan to Reopen Hormuz: Lift the Blockade, Wait Five Days, Then We Talk, Like a Very Aggressive Spa Package",
-   real:"Foreign Minister Araghchi says that if the US meets Iran's conditions, including lifting its blockade of Iranian ports, Hormuz reopens on day six and talks start on day seven; Iran is still reviewing US comments. Ship attacks hit a weekly high of at least 10, Iran says two tankers hit mines and caught fire, and a tug was struck off Khor Fakkan, UAE. Oil rose about 8% last week to above $100.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["BabyPips","https://www.babypips.com/analysis/fundies-cheat-sheet-2026-10-19-oil-ai-earnings-yields"],["Iran International","https://www.iranintl.com/en/liveblog/202610105959"]]},
-  {d:"2026-10-19", desk:"Money", region:"Global", doom:48, art:"pump", t:"$100+",
-   h:"Oil Ends the Week Up 8% and Back Above $100, Just in Time for Big Tech Earnings Week to Ask Whether AI Was Worth It",
-   real:"Oil rose about 8% last week on attacks on ships and Saudi energy sites. This week brings China's GDP, earnings from Netflix, Meta, Tesla and IBM, and US oil inventory data; markets now see about a 15% chance of a Fed rate hike in October.",
-   src:[["BabyPips","https://www.babypips.com/analysis/fundies-cheat-sheet-2026-10-19-oil-ai-earnings-yields"]]},
-  {d:"2026-10-18", desk:"Middle East", region:"USA / Israel", doom:70, art:"ballot",
+   real:"Iran says that if the US meets its conditions, including lifting the blockade of Iranian ports, Hormuz reopens on day six and talks start on day seven; it is still reviewing US comments. Last week saw at least 10 ship attacks, a weekly high, and US crude is hovering around $100 a barrel.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
+  {d:"2026-10-19", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
+   h:"Report Says Iran Flew Drone Parts to the Houthis on Mahan Air, a Bold New Use of Checked Luggage",
+   real:"The Wall Street Journal reports IRGC officers helped direct Houthi attacks on Saudi Arabia and that Mahan Air flights carried drone parts and missile guidance systems; Iran and the Houthis deny it. A Houthi strike on a government training camp in Shabwa killed 18, the Houthis claimed new attacks on Saudi energy sites, and the UAE is resuming payments to Yemeni government forces.",
+   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/19/iran-support-for-houthis-probed-as-yemen-war-re-erupts-and-saudi-cities-hit"],["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
+  {d:"2026-10-19", desk:"World", region:"Ukraine / Russia", doom:76, art:"missile",
+   h:"Putin Reportedly Proposes a Ukraine Peace Summit With Trump and Xi; Seating Chart: Everyone Except Ukraine",
+   real:"Putin has reportedly proposed a three-way summit with Trump and Xi on the war, without Zelenskyy. Zelenskyy told Bloomberg “steps have been taken to convince Ukraine to capitulate,” pointing to the diesel deal, sanctions waivers and limits on satellite internet. A Russian attack on Kyiv killed a woman and cut power to over 500,000 households.",
+   src:[["CNBC","https://www.cnbc.com/2026/10/19/putin-trump-xi-ukraine-war-energy.html"],["Philadelphia Inquirer","https://www.inquirer.com/news/nation-world/trump-zelensky-putin-push-ukraine-surrender-russian-diesel-satellite-internet-20261019.html"],["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"Middle East", region:"USA / Israel", doom:70, art:"ballot",
    h:"Last Week Trump Hadn't “Even Thought About” Israel's Election; This Week He Endorsed Netanyahu",
-   real:"Trump endorsed Netanyahu ahead of Israel's 27 October election, after saying a week earlier he hadn't thought about endorsing anyone. Netanyahu said their partnership would help “eliminate the Iranian threat.”",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["CP24 / AP","https://www.cp24.com/news/world/2026/10/13/iran-increases-threat-to-strait-of-hormuz-shipping-and-other-middle-east-developments/"]]},
-  {d:"2026-10-18", desk:"Middle East", region:"USA / Iran / Israel", doom:84, art:"tv", t:"TBC",
-   h:"Trump Promises to “Knock Out” Pickaxe Mountain Fast, and Iran's Hardline Newspaper Replies With Israel's Nuclear Sites",
-   real:"Trump says the US may have to strike the Pickaxe Mountain nuclear site and could keep forces in the region longer; Vance said the US “won decisively” but Iran “gets a vote.” Iran's new defence minister warned of “enormous damage” if attacks resume, and the hardline Kayhan newspaper said Iran should hit Israeli nuclear facilities if the US strikes.",
-   src:[["Iran International","https://www.iranintl.com/en/liveblog/202610105959"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["RFE/RL","https://www.rferl.org/a/iran-live-blog-trump-middle-east/33803414.html"]]},
-  {d:"2026-10-18", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
-   h:"Riyadh's Kingdom Centre Tells Everyone to Work From Home “Until Further Notice”; The Houthis Accidentally Win the Return-to-Office Debate",
-   real:"Kingdom Centre tenants were told to work remotely amid Houthi attacks. A Houthi projectile hit a residential area of Najran, injuring six, two Saudi pilots died in a helicopter crash blamed on a malfunction, and Houthi media say a Saudi airstrike in northern Yemen killed at least nine. Yemen's government rejected Iran's offer to mediate.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["Iran International","https://www.iranintl.com/en/liveblog/202610105959"]]},
-  {d:"2026-10-18", desk:"World", region:"Ukraine / Russia", doom:76, art:"missile",
-   h:"Ukraine Sends Over 1,000 Drones at Russia in One Night, and Trump Concludes the Problem Is Zelenskyy",
-   real:"Ukraine launched more than 1,000 drones overnight, setting a St Petersburg oil terminal and depot ablaze and killing at least one person. Trump said Zelenskyy “doesn't want to end this war” and defended pausing Russia sanctions so as not to drive Moscow from talks; Zelenskyy says Russia fired nearly 2,700 drones and 66 missiles at Ukraine in a week.",
-   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/18/ukrainian-drone-attack-on-russias-st-petersburg-kills-1-hits-energy-sites"],["CNN","https://www.cnn.com/2026/10/18/europe/ukraine-russia-drone-attack-trump-intl"],["ABC News","https://abcnews.com/International/ukraine-targets-russia-1000-drones-striking-oil-terminal/story?id=137358203"]]},
-  {d:"2026-10-18", desk:"Middle East", region:"Lebanon", doom:55, art:"folder", t:"STOP",
-   h:"Lebanon's Foreign Minister Tells Iran, In Person, to Stop Arming Hezbollah; Somewhere a Protocol Officer Faints",
-   real:"At an OIC meeting in Baghdad, Foreign Minister Youssef Raggi told Iran to stop interfering in Lebanon, stop funding and arming Hezbollah, and halt attacks on Gulf states and Jordan. Netanyahu says Israel will stay in southern Lebanon until Hezbollah is disarmed, and Hezbollah is still demanding its seized explosives back.",
-   src:[["Israel Hayom","https://www.israelhayom.com/2026/10/18/lebanon-confronts-iran-demands-end-to-hezbollah-arms-shipments-and-interference/"],["L'Orient Today","https://today.lorientlejour.com/article/1551207/netanyahu-says-israel-will-remain-in-southern-lebanon-until-hezbollah-is-disarmed.html"],["Yahoo News","https://www.yahoo.com/news/world/articles/division-lebanon-over-hezbollah-confiscated-160943131.html"]]},
-  {d:"2026-10-18", desk:"Middle East", region:"UAE / Yemen", doom:70, art:"missile",
-   h:"The UAE Rejoins the Yemen Group Project, Funding Forces Against the Houthis While Saudi Arabia Handles Air Cover",
-   real:"The Guardian reports the UAE agreed to resume funding Yemeni forces fighting the Houthis, with Saudi Arabia providing air cover; the UAE had withdrawn from Yemen in January.",
-   src:[["Iran International","https://www.iranintl.com/en/liveblog/202610105959"]]}
+   real:"Trump endorsed Netanyahu on Truth Social days before Israel's 27 October election, a week after saying he hadn't thought about endorsing anyone. Most polls show Netanyahu's coalition short of a majority.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"]]},
+  {d:"2026-10-19", desk:"Middle East", region:"Gaza", doom:62, art:"bowl",
+   h:"No Joke on This One: WFP Cuts Monthly Food Aid in Gaza to 1.1 Million People From 1.6 Million",
+   real:"The World Food Programme is cutting monthly food aid in Gaza from 1.6 million to 1.1 million people. A mass funeral was held for 75 Palestinians whose remains were recovered from rubble.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"Middle East", region:"West Bank", doom:55, art:"cedar", t:"HARVEST",
+   h:"No Joke Here Either: Masked Settlers Attack the Olive Harvest, Hospitalising a Washington Post Photojournalist",
+   real:"Dozens of Palestinians were wounded in settler attacks on the olive harvest, including an attack by at least 80 masked settlers in Abu Falah. Washington Post photojournalist Heidi Levine was hospitalised, and Israeli police detained 10 suspects.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"Money", region:"China / Wall Street", doom:38, art:"chip",
+   h:"China Grows 4.5% and Chip Stocks Finally Stop Falling; Markets Briefly Remember What Optimism Felt Like",
+   real:"China's economy grew 4.5% in the third quarter, slightly above a Reuters poll. The S&P 500 rose about 0.5% on a chip rebound, US crude hovered near $100 after Trump's Russia sanctions waiver, and the 10-year yield rose to about 5.14%.",
+   src:[["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
+  {d:"2026-10-19", desk:"World", region:"France", doom:42, art:"cloud", t:"FIRE", t2:"2,400 ARRESTS",
+   h:"France's Protests Spread to 140 Cities With 2,400 Arrests; Macron's “Consequences” Turn Out to Be Mostly More Protests",
+   real:"Hundreds of thousands marched in more than 140 French cities over living costs and school conditions; about 2,400 people were arrested and nearly 1,000 police were injured.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["Euronews","https://www.euronews.com/news/international"]]},
+  {d:"2026-10-19", desk:"World", region:"USA", doom:25, art:"tv", t:"LIVE",
+   h:"Millions Turn Out for “No Kings” Rallies in All 50 States; Instagram Briefly Bans the Organisers, Then Apologises, Very Royal of It",
+   real:"Millions joined more than 3,000 “No Kings” events across all 50 states ahead of the midterms. Meta apologised after the coalition's Instagram account was shut down for several hours.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"World", region:"Tunisia", doom:30, art:"ballot",
+   h:"Tunisians Hold the Biggest Protest Against President Saïed in Years; The Jailed Critics Were Unable to Attend",
+   real:"Thousands marched in Tunis, led by the main labour union, in the largest protest against President Kaïs Saïed in years, demanding the release of jailed critics.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"World", region:"Albania", doom:25, art:"folder", t:"RESIGN?",
+   h:"Albania's Protests Enter Week Two as Crowds Demand the PM Resign; The Kushner Resort Brochure Remains Unbothered",
+   real:"Protests in Tirana entered their second week, demanding Prime Minister Edi Rama resign. They began over a luxury resort tied to Jared Kushner and grew into anger over corruption and living costs.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"World", region:"Brazil", doom:20, art:"ballot",
+   h:"Lula Debates a Bolsonaro a Week Before Brazil's Runoff; It's Flávio This Time, Please Keep Up",
+   real:"President Lula and Flávio Bolsonaro held their only debate a week before the presidential runoff. Flávio finished two points ahead in the first round, but recent polls have narrowed.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
+  {d:"2026-10-19", desk:"Weird", region:"Washington", doom:6, art:"tv", t:"BYE",
+   h:"White House Press Secretary Resigns After Five Days Over the Bar Exam Thing, Setting a New Speedrun Record",
+   real:"Katie Zacharia resigned as White House press secretary after five days, following questions about her claims to be a lawyer despite failing the California bar exam.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]}
 ];
 
 const TIERS = [
@@ -219,7 +243,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-10-19T09:15:00+04:00";
+const UPDATED = "2026-10-20T09:05:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
