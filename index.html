@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Tuesday, 20 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Friday, 23 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -170,69 +170,69 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 19–20 October 2026, updated Tuesday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 21–22 October 2026, updated Friday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {d:"2026-10-20", desk:"Middle East", region:"Lebanon / Israel", doom:55, art:"plane", t:"TPA",
-   h:"Lebanon and Israel Hold Military Talks in Tampa, Florida, Long Known as the Natural Home of Middle East Diplomacy",
-   real:"A Lebanese military delegation meets Israel in US-backed talks in Tampa on 20 October, pressing for an end to Israeli attacks in the south, further Israeli withdrawal and a Lebanese Army deployment to the border. Lebanon's foreign minister also told Iran this weekend to stop arming Hezbollah.",
-   src:[["VPP News","https://vppnews.substack.com/p/lebanon-alerts-aoun-confirms-lebanon"],["Reuters via Internazionale","https://www.internazionale.it/ultime-notizie-reuters/2026/10/17/lebanon-says-military-delegation-will-press-for-halt-to-israeli-attacks-at-us-talks"],["Israel Hayom","https://www.israelhayom.com/2026/10/18/lebanon-confronts-iran-demands-end-to-hezbollah-arms-shipments-and-interference/"]]},
-  {d:"2026-10-19", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
-   h:"Iran Offers a Seven-Day Plan to Reopen Hormuz: Lift the Blockade, Wait Five Days, Then We Talk, Like a Very Aggressive Spa Package",
-   real:"Iran says that if the US meets its conditions, including lifting the blockade of Iranian ports, Hormuz reopens on day six and talks start on day seven; it is still reviewing US comments. Last week saw at least 10 ship attacks, a weekly high, and US crude is hovering around $100 a barrel.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"],["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
-  {d:"2026-10-19", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
-   h:"Report Says Iran Flew Drone Parts to the Houthis on Mahan Air, a Bold New Use of Checked Luggage",
-   real:"The Wall Street Journal reports IRGC officers helped direct Houthi attacks on Saudi Arabia and that Mahan Air flights carried drone parts and missile guidance systems; Iran and the Houthis deny it. A Houthi strike on a government training camp in Shabwa killed 18, the Houthis claimed new attacks on Saudi energy sites, and the UAE is resuming payments to Yemeni government forces.",
-   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/19/iran-support-for-houthis-probed-as-yemen-war-re-erupts-and-saudi-cities-hit"],["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
-  {d:"2026-10-19", desk:"World", region:"Ukraine / Russia", doom:76, art:"missile",
-   h:"Putin Reportedly Proposes a Ukraine Peace Summit With Trump and Xi; Seating Chart: Everyone Except Ukraine",
-   real:"Putin has reportedly proposed a three-way summit with Trump and Xi on the war, without Zelenskyy. Zelenskyy told Bloomberg “steps have been taken to convince Ukraine to capitulate,” pointing to the diesel deal, sanctions waivers and limits on satellite internet. A Russian attack on Kyiv killed a woman and cut power to over 500,000 households.",
-   src:[["CNBC","https://www.cnbc.com/2026/10/19/putin-trump-xi-ukraine-war-energy.html"],["Philadelphia Inquirer","https://www.inquirer.com/news/nation-world/trump-zelensky-putin-push-ukraine-surrender-russian-diesel-satellite-internet-20261019.html"],["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"Middle East", region:"USA / Israel", doom:70, art:"ballot",
-   h:"Last Week Trump Hadn't “Even Thought About” Israel's Election; This Week He Endorsed Netanyahu",
-   real:"Trump endorsed Netanyahu on Truth Social days before Israel's 27 October election, a week after saying he hadn't thought about endorsing anyone. Most polls show Netanyahu's coalition short of a majority.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-strait-of-hormuz-yemen-houthis-saudi-arabia/"]]},
-  {d:"2026-10-19", desk:"Middle East", region:"Gaza", doom:62, art:"bowl",
-   h:"No Joke on This One: WFP Cuts Monthly Food Aid in Gaza to 1.1 Million People From 1.6 Million",
-   real:"The World Food Programme is cutting monthly food aid in Gaza from 1.6 million to 1.1 million people. A mass funeral was held for 75 Palestinians whose remains were recovered from rubble.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"Middle East", region:"West Bank", doom:55, art:"cedar", t:"HARVEST",
-   h:"No Joke Here Either: Masked Settlers Attack the Olive Harvest, Hospitalising a Washington Post Photojournalist",
-   real:"Dozens of Palestinians were wounded in settler attacks on the olive harvest, including an attack by at least 80 masked settlers in Abu Falah. Washington Post photojournalist Heidi Levine was hospitalised, and Israeli police detained 10 suspects.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"Money", region:"China / Wall Street", doom:38, art:"chip",
-   h:"China Grows 4.5% and Chip Stocks Finally Stop Falling; Markets Briefly Remember What Optimism Felt Like",
-   real:"China's economy grew 4.5% in the third quarter, slightly above a Reuters poll. The S&P 500 rose about 0.5% on a chip rebound, US crude hovered near $100 after Trump's Russia sanctions waiver, and the 10-year yield rose to about 5.14%.",
-   src:[["BabyPips","https://www.babypips.com/news/financial-forex-market-recap-2026-10-19"]]},
-  {d:"2026-10-19", desk:"World", region:"France", doom:42, art:"cloud", t:"FIRE", t2:"2,400 ARRESTS",
-   h:"France's Protests Spread to 140 Cities With 2,400 Arrests; Macron's “Consequences” Turn Out to Be Mostly More Protests",
-   real:"Hundreds of thousands marched in more than 140 French cities over living costs and school conditions; about 2,400 people were arrested and nearly 1,000 police were injured.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"],["Euronews","https://www.euronews.com/news/international"]]},
-  {d:"2026-10-19", desk:"World", region:"USA", doom:25, art:"tv", t:"LIVE",
-   h:"Millions Turn Out for “No Kings” Rallies in All 50 States; Instagram Briefly Bans the Organisers, Then Apologises, Very Royal of It",
-   real:"Millions joined more than 3,000 “No Kings” events across all 50 states ahead of the midterms. Meta apologised after the coalition's Instagram account was shut down for several hours.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"World", region:"Tunisia", doom:30, art:"ballot",
-   h:"Tunisians Hold the Biggest Protest Against President Saïed in Years; The Jailed Critics Were Unable to Attend",
-   real:"Thousands marched in Tunis, led by the main labour union, in the largest protest against President Kaïs Saïed in years, demanding the release of jailed critics.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"World", region:"Albania", doom:25, art:"folder", t:"RESIGN?",
-   h:"Albania's Protests Enter Week Two as Crowds Demand the PM Resign; The Kushner Resort Brochure Remains Unbothered",
-   real:"Protests in Tirana entered their second week, demanding Prime Minister Edi Rama resign. They began over a luxury resort tied to Jared Kushner and grew into anger over corruption and living costs.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"World", region:"Brazil", doom:20, art:"ballot",
-   h:"Lula Debates a Bolsonaro a Week Before Brazil's Runoff; It's Flávio This Time, Please Keep Up",
-   real:"President Lula and Flávio Bolsonaro held their only debate a week before the presidential runoff. Flávio finished two points ahead in the first round, but recent polls have narrowed.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]},
-  {d:"2026-10-19", desk:"Weird", region:"Washington", doom:6, art:"tv", t:"BYE",
-   h:"White House Press Secretary Resigns After Five Days Over the Bar Exam Thing, Setting a New Speedrun Record",
-   real:"Katie Zacharia resigned as White House press secretary after five days, following questions about her claims to be a lawyer despite failing the California bar exam.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/19/headlines"]]}
+  {d:"2026-10-22", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
+   h:"Trump Accuses Iran of Faking Its Own Ship Attacks to Pump Oil Prices; Iran Insists It Really Is Attacking the Ships, Thank You",
+   real:"Iran's Revolutionary Guard says it hit four ships transferring oil and three others struck mines; Iranian TV claimed seven tankers were hit. Trump said Iran is faking incidents to drive up oil before the midterms and invoked the Defense Production Act to speed US oil output. Brent hit about $112, its highest since May, and the IRGC warned US bases would be targeted if escorts continue.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["Fox News","https://www.foxnews.com/live-news/us-iran-war-strait-hormuz-oil-prices-10-22-26"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"Middle East", region:"USA / Israel / Iran", doom:84, art:"tv", t:"NOV 4",
+   h:"US and Israel Reportedly Draft Plans to Resume Iran Strikes Right After the Midterms, Giving the War a Very Specific Release Date",
+   real:"The New York Times reports US and Israeli militaries have drawn up plans for new strikes on Iran after the 3 November elections; the FT says Trump blocked an Israeli strike planned for around 10 October to avoid pre-election escalation. Netanyahu says he has directed Israel's military and intelligence to topple Iran's regime, and an IRGC official threatened undersea internet cables in Hormuz.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"Middle East", region:"Saudi Arabia", doom:82, art:"derrick",
+   h:"Aramco Joins the Work-From-Home Movement as Houthi Attacks Reach Dammam; The US Tells Non-Essential Staff to Leave Saudi",
+   real:"A Houthi attack on Dammam's King Fahd airport killed two and injured eight, and debris from a drone aimed at the Shaybah oil field killed two. Aramco told staff to leave its Dhahran headquarters and work remotely, and the State Department ordered non-emergency US staff and families out of Saudi Arabia. Aramco says its East-West pipeline, which bypasses Hormuz, is now moving 7 million barrels a day.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["RFE/RL","https://www.rferl.org/a/iran-live-blog-trump-middle-east/33803414.html"]]},
+  {d:"2026-10-22", desk:"World", region:"Ukraine / Russia", doom:76, art:"missile",
+   h:"Witkoff Calls Putin a “Humanitarian”; Putin Celebrates by Hitting Kyiv With Missiles a Few Hours Later",
+   real:"After meeting envoy Steve Witkoff, the Kremlin said Russia is “in principle” willing to restart US-mediated talks next month and freed jailed American teacher Stephen Hubbard. Overnight, Russian strikes on Kyiv killed at least four, while Ukraine sent about 630 drones toward Moscow. Trump said the war may be as close as it's ever been to ending.",
+   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"World", region:"Planet Earth", doom:70, art:"iceberg",
+   h:"UN Confirms the World Has Officially Missed the 1.5°C Target; The Planet Was Not Consulted",
+   real:"The UN's annual Emissions Gap Report says the chance to limit warming to 1.5°C has been lost, though faster cuts could shorten and soften the overshoot. Britain the same day approved gas extraction from the North Sea's Jackdaw field.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
+  {d:"2026-10-22", desk:"World", region:"Nigeria", doom:66, art:"cross",
+   h:"No Joke on This One: Nigeria Reports Its First Ebola Case in Over a Decade",
+   real:"Nigeria is treating an Ebola patient in Abuja who arrived from Ethiopia, its first case in more than a decade, in an outbreak that has killed over 4,600 people and sickened nearly 10,000.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
+  {d:"2026-10-22", desk:"Middle East", region:"Turkey / Saudi", doom:60, art:"folder", t:"TROOPS?",
+   h:"Turkey Asks Parliament to Send Troops to Saudi Arabia; Egypt and Turkey Are Now Both “Ready to Help If Asked,” Like Neighbours Holding Ladders",
+   real:"Turkey plans to seek parliamentary approval to deploy military personnel to Saudi Arabia under a defence pact, after Egypt said any support would be defensive. Diplomats from Britain, France and Germany plus Turkey, Saudi Arabia, Pakistan and Egypt are due to meet in Istanbul on Friday.",
+   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"]]},
+  {d:"2026-10-22", desk:"Middle East", region:"Lebanon / Israel", doom:58, art:"plane", t:"TPA",
+   h:"Lebanon–Israel Talks in Tampa End With No Breakthrough; Florida Fails to Deliver Middle East Peace, Again",
+   real:"Two days of US-hosted military talks at CENTCOM headquarters ended without agreement and with no new session scheduled. Israel rejects third-party monitoring and wants joint operations rooms, and refuses to expand the pilot withdrawal zone; Israeli strikes and shelling in the south continued Thursday.",
+   src:[["The New Arab","https://www.newarab.com/news/lebanon-israel-talks-us-end-without-breakthrough"],["Daily Beirut","https://dailybeirut.com/en/lebanon-news/six-hours-talks-no-result-blocked-lebanon-israel-agreement/"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"World", region:"Germany", doom:52, art:"folder", t:"ACHTUNG",
+   h:"Germany's Military Rates the Russian Sabotage Threat “Significant” for the First Time, the Most German Possible Way to Say Panic",
+   real:"Germany's armed forces rated the threat of Russian sabotage against them as “significant” for the first time.",
+   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"Money", region:"Wall Street", doom:50, art:"chip",
+   h:"Meta Drops 7% and Gets a $25 Billion Fine in the Same Week, While Tesla Beats Earnings and Falls Anyway",
+   real:"The Nasdaq fell about 2.6% as Meta closed down 7% after earnings and Tesla fell 3% despite beating estimates on higher spending plans. A New Mexico judge ordered Meta to pay $25 billion over privacy claims, its largest fine ever. Brent hit its highest level since May on reports of post-midterm Iran strike plans.",
+   src:[["Yahoo Finance","https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
+  {d:"2026-10-22", desk:"Tech", region:"The Internet", doom:45, art:"tv", t:"404",
+   h:"Critical PHP Flaws Leave Most of the Internet Exposed; Wikipedia and the BBC Go Offline to Patch, Everyone Else Pretends They Updated",
+   real:"Critical security flaws in PHP, which powers most websites, could let attackers take over web servers; parts of Wikipedia and the BBC went offline while patches were rushed out.",
+   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
+  {d:"2026-10-22", desk:"Tech", region:"China / Japan", doom:42, art:"mic",
+   h:"Microsoft Says Chinese Hackers Used an AI Hacking Tool on ConnectWise; The Robots Are Doing the Break-Ins Now Too",
+   real:"Microsoft says a Chinese state-aligned group used an AI penetration-testing tool to compromise ConnectWise, and a Chinese AI tool was also linked to hacks on companies in Japan.",
+   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"World", region:"Brazil", doom:20, art:"ballot",
+   h:"Flávio Bolsonaro Agrees to Release His Financial Records, With Conditions, the Most Bolsonaro Answer Possible",
+   real:"Ahead of Sunday's presidential runoff, Flávio Bolsonaro set conditions on releasing his financial records after a challenge from President Lula.",
+   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
+  {d:"2026-10-22", desk:"Good News", region:"Russia / USA", doom:12, art:"folder", t:"FREED",
+   h:"Russia Frees Jailed American Teacher Stephen Hubbard, Who Is Finally Going Home",
+   real:"Russia released jailed US teacher Stephen Hubbard as a goodwill gesture after envoy Steve Witkoff met Putin in St Petersburg.",
+   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]}
 ];
 
 const TIERS = [
@@ -243,7 +243,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-10-20T09:05:00+04:00";
+const UPDATED = "2026-10-23T08:55:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
