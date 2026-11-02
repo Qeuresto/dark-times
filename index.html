@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Friday, 23 October 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Monday, 2 November 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -170,69 +170,49 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 21–22 October 2026, updated Friday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 31 October–2 November 2026, updated Monday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {d:"2026-10-22", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
-   h:"Trump Accuses Iran of Faking Its Own Ship Attacks to Pump Oil Prices; Iran Insists It Really Is Attacking the Ships, Thank You",
-   real:"Iran's Revolutionary Guard says it hit four ships transferring oil and three others struck mines; Iranian TV claimed seven tankers were hit. Trump said Iran is faking incidents to drive up oil before the midterms and invoked the Defense Production Act to speed US oil output. Brent hit about $112, its highest since May, and the IRGC warned US bases would be targeted if escorts continue.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["Fox News","https://www.foxnews.com/live-news/us-iran-war-strait-hormuz-oil-prices-10-22-26"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"Middle East", region:"USA / Israel / Iran", doom:84, art:"tv", t:"NOV 4",
-   h:"US and Israel Reportedly Draft Plans to Resume Iran Strikes Right After the Midterms, Giving the War a Very Specific Release Date",
-   real:"The New York Times reports US and Israeli militaries have drawn up plans for new strikes on Iran after the 3 November elections; the FT says Trump blocked an Israeli strike planned for around 10 October to avoid pre-election escalation. Netanyahu says he has directed Israel's military and intelligence to topple Iran's regime, and an IRGC official threatened undersea internet cables in Hormuz.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"Middle East", region:"Saudi Arabia", doom:82, art:"derrick",
-   h:"Aramco Joins the Work-From-Home Movement as Houthi Attacks Reach Dammam; The US Tells Non-Essential Staff to Leave Saudi",
-   real:"A Houthi attack on Dammam's King Fahd airport killed two and injured eight, and debris from a drone aimed at the Shaybah oil field killed two. Aramco told staff to leave its Dhahran headquarters and work remotely, and the State Department ordered non-emergency US staff and families out of Saudi Arabia. Aramco says its East-West pipeline, which bypasses Hormuz, is now moving 7 million barrels a day.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["RFE/RL","https://www.rferl.org/a/iran-live-blog-trump-middle-east/33803414.html"]]},
-  {d:"2026-10-22", desk:"World", region:"Ukraine / Russia", doom:76, art:"missile",
-   h:"Witkoff Calls Putin a “Humanitarian”; Putin Celebrates by Hitting Kyiv With Missiles a Few Hours Later",
-   real:"After meeting envoy Steve Witkoff, the Kremlin said Russia is “in principle” willing to restart US-mediated talks next month and freed jailed American teacher Stephen Hubbard. Overnight, Russian strikes on Kyiv killed at least four, while Ukraine sent about 630 drones toward Moscow. Trump said the war may be as close as it's ever been to ending.",
-   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"World", region:"Planet Earth", doom:70, art:"iceberg",
-   h:"UN Confirms the World Has Officially Missed the 1.5°C Target; The Planet Was Not Consulted",
-   real:"The UN's annual Emissions Gap Report says the chance to limit warming to 1.5°C has been lost, though faster cuts could shorten and soften the overshoot. Britain the same day approved gas extraction from the North Sea's Jackdaw field.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
-  {d:"2026-10-22", desk:"World", region:"Nigeria", doom:66, art:"cross",
-   h:"No Joke on This One: Nigeria Reports Its First Ebola Case in Over a Decade",
-   real:"Nigeria is treating an Ebola patient in Abuja who arrived from Ethiopia, its first case in more than a decade, in an outbreak that has killed over 4,600 people and sickened nearly 10,000.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
-  {d:"2026-10-22", desk:"Middle East", region:"Turkey / Saudi", doom:60, art:"folder", t:"TROOPS?",
-   h:"Turkey Asks Parliament to Send Troops to Saudi Arabia; Egypt and Turkey Are Now Both “Ready to Help If Asked,” Like Neighbours Holding Ladders",
-   real:"Turkey plans to seek parliamentary approval to deploy military personnel to Saudi Arabia under a defence pact, after Egypt said any support would be defensive. Diplomats from Britain, France and Germany plus Turkey, Saudi Arabia, Pakistan and Egypt are due to meet in Istanbul on Friday.",
-   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-trump-us-ceasefire-talks-ongoing/"]]},
-  {d:"2026-10-22", desk:"Middle East", region:"Lebanon / Israel", doom:58, art:"plane", t:"TPA",
-   h:"Lebanon–Israel Talks in Tampa End With No Breakthrough; Florida Fails to Deliver Middle East Peace, Again",
-   real:"Two days of US-hosted military talks at CENTCOM headquarters ended without agreement and with no new session scheduled. Israel rejects third-party monitoring and wants joint operations rooms, and refuses to expand the pilot withdrawal zone; Israeli strikes and shelling in the south continued Thursday.",
-   src:[["The New Arab","https://www.newarab.com/news/lebanon-israel-talks-us-end-without-breakthrough"],["Daily Beirut","https://dailybeirut.com/en/lebanon-news/six-hours-talks-no-result-blocked-lebanon-israel-agreement/"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"World", region:"Germany", doom:52, art:"folder", t:"ACHTUNG",
-   h:"Germany's Military Rates the Russian Sabotage Threat “Significant” for the First Time, the Most German Possible Way to Say Panic",
-   real:"Germany's armed forces rated the threat of Russian sabotage against them as “significant” for the first time.",
-   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"Money", region:"Wall Street", doom:50, art:"chip",
-   h:"Meta Drops 7% and Gets a $25 Billion Fine in the Same Week, While Tesla Beats Earnings and Falls Anyway",
-   real:"The Nasdaq fell about 2.6% as Meta closed down 7% after earnings and Tesla fell 3% despite beating estimates on higher spending plans. A New Mexico judge ordered Meta to pay $25 billion over privacy claims, its largest fine ever. Brent hit its highest level since May on reports of post-midterm Iran strike plans.",
-   src:[["Yahoo Finance","https://finance.yahoo.com/markets/live/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html"],["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
-  {d:"2026-10-22", desk:"Tech", region:"The Internet", doom:45, art:"tv", t:"404",
-   h:"Critical PHP Flaws Leave Most of the Internet Exposed; Wikipedia and the BBC Go Offline to Patch, Everyone Else Pretends They Updated",
-   real:"Critical security flaws in PHP, which powers most websites, could let attackers take over web servers; parts of Wikipedia and the BBC went offline while patches were rushed out.",
-   src:[["Democracy Now!","https://www.democracynow.org/2026/10/22/headlines"]]},
-  {d:"2026-10-22", desk:"Tech", region:"China / Japan", doom:42, art:"mic",
-   h:"Microsoft Says Chinese Hackers Used an AI Hacking Tool on ConnectWise; The Robots Are Doing the Break-Ins Now Too",
-   real:"Microsoft says a Chinese state-aligned group used an AI penetration-testing tool to compromise ConnectWise, and a Chinese AI tool was also linked to hacks on companies in Japan.",
-   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"World", region:"Brazil", doom:20, art:"ballot",
-   h:"Flávio Bolsonaro Agrees to Release His Financial Records, With Conditions, the Most Bolsonaro Answer Possible",
-   real:"Ahead of Sunday's presidential runoff, Flávio Bolsonaro set conditions on releasing his financial records after a challenge from President Lula.",
-   src:[["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]},
-  {d:"2026-10-22", desk:"Good News", region:"Russia / USA", doom:12, art:"folder", t:"FREED",
-   h:"Russia Frees Jailed American Teacher Stephen Hubbard, Who Is Finally Going Home",
-   real:"Russia released jailed US teacher Stephen Hubbard as a goodwill gesture after envoy Steve Witkoff met Putin in St Petersburg.",
-   src:[["Al Jazeera","https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin"],["FDD Overnight Brief","https://www.fdd.org/overnight-brief/october-22-2026/"]]}
+  {d:"2026-11-01", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
+   h:"Araghchi Says Hormuz Could Reopen in Two Days If the US Meets Iran's Demands, Down From Last Week's Seven, Which Is Technically Progress",
+   real:"Iran's foreign minister said the strait could reopen within two days if Washington meets Iran's demands, as Qatar-mediated talks continue in Doha. A Qatari LNG tanker was struck in the Gulf, drawing condemnation from Saudi Arabia, Qatar and Kuwait, another vessel was hit in Hormuz, and Reuters reports Iran is moving military hardware past the US blockade.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"],["ABC News","https://abcnews.com/International/live-updates/iran-live-updates-houthis-claim-new-attack-riyadh/?id=137563447"]]},
+  {d:"2026-11-01", desk:"Middle East", region:"USA / Iran", doom:84, art:"tv", t:"NOV 4",
+   h:"Trump Says He's in No Hurry for an Iran Deal at a Mar-a-Lago Halloween Party; Iran Says Vance's New Letter Has a “Completely Changed” Tone",
+   real:"Trump said the US is “not in that much of a hurry” for a deal and still has to “take care” of one or two targets in Iran, and reportedly discussed resuming strikes with Netanyahu. Iran's Mohsen Rezaei said a letter from JD Vance aimed at reviving talks struck a new tone; Iran's supreme leader warned of a response “without geographical limits” and an official said nuclear talks are off the table.",
+   src:[["ABC News","https://abcnews.com/International/live-updates/iran-live-updates-houthis-claim-new-attack-riyadh/?id=137563447"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"],["Fox News","https://www.foxnews.com/live-news/us-iran-war-trump-israel-strait-hormuz-10-31-26"]]},
+  {d:"2026-11-01", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
+   h:"Saudi Arabia Moves Some Schools to Remote Learning as Houthi Threats Continue; The Kingdom Is Slowly Becoming One Big Zoom Call",
+   real:"The Houthis renewed threats against Aramco and Saudi airspace, the Saudi-led coalition intercepted another ballistic missile, and alerts went out in Abha, Khamis Mushait and Jazan. Some areas switched to remote learning. The UN says more than 300,000 people have fled fighting in western Yemen, and Saudi Arabia announced a visa amnesty for Yemenis in the kingdom.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"]]},
+  {d:"2026-11-01", desk:"Middle East", region:"UAE", doom:60, art:"folder", t:"BRACED",
+   h:"UAE's Gargash Says the Country Hopes for a Breakthrough but Is “Braced for the Worst,” Now the Official Mood of the Entire Gulf",
+   real:"UAE presidential adviser Anwar Gargash said the UAE hopes for a breakthrough in the US-Iran war but is braced for the worst.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"]]},
+  {d:"2026-11-01", desk:"World", region:"Ukraine", doom:72, art:"missile",
+   h:"No Joke on This One: Russian Strike on Koziatyn Kills a 13-Year-Old Girl Days Before Peace Talks",
+   real:"A Russian strike near a school and a dormitory for displaced people in Koziatyn, Vinnytsia region, killed two people, including a 13-year-old girl, and injured six, four of them children. Ukraine, Russia and the US are due to hold peace talks between 6 and 10 November.",
+   src:[["UA.News","https://ua.news/en/war-vs-rf/u-koziatini-zrosla-kilkist-zhertv-rosiiskogo-udaru-bilshist-iz-nikh-diti"],["Korea Times","https://www.koreatimes.co.kr/world/20261029/ukraine-russia-us-peace-negotiators-to-meet-between-nov-6-and-10-zelenskyy-says"]]},
+  {d:"2026-11-01", desk:"World", region:"DR Congo / Africa", doom:68, art:"cross",
+   h:"No Joke on This One Either: Congo's Ebola Outbreak Passes 5,000 Deaths and Spreads to Four More Countries",
+   real:"Government figures show more than 5,000 Ebola deaths out of 10,351 infections in DR Congo, with cases also recorded in Kenya, Nigeria and Uganda.",
+   src:[["Morning Star","https://morningstaronline.co.uk/article/world-brief-november-1-2026"]]},
+  {d:"2026-11-01", desk:"World", region:"USA", doom:55, art:"ballot",
+   h:"America Votes Tomorrow: Democrats Lead House Polls, Ted Cruz Predicts a “Bloodbath,” and Trump Says “28 Days of This Crap Is a Lot”",
+   real:"CBS polling gives Democrats an edge for the House, with the Senate hinging on toss-ups in Maine, Michigan, Ohio, Texas and Alaska. Nearly 50 million early votes had been cast by Friday. Ted Cruz warned Republicans could lose Texas and both chambers, and Trump told a Florida rally “28 days of this crap is a lot.”",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"],["Al Jazeera","https://www.aljazeera.com/news/2026/10/31/us-midterms-3-days-to-go-what-latest-polls-say-as-early-voting-surges"]]},
+  {d:"2026-11-01", desk:"Weird", region:"Alaska", doom:22, art:"tv", t:"190",
+   h:"Alaska's Senate Ballot Has Two Dan Sullivans; Trump Says You Need a “190 IQ” to Vote There, and the DOJ Wants to Block Results If the Wrong One Loses",
+   real:"An independent candidate named Daniel J. Sullivan shares a name with Republican Sen. Dan Sullivan. The Justice Department sued to block certification if the senator loses, citing voter confusion; Alaska has moved to dismiss the suit, and Trump said voters need a “190 IQ” to understand the ballot.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"]]},
+  {d:"2026-11-01", desk:"Good News", region:"Chicago / Vatican", doom:3, art:"folder", t:"MAILED",
+   h:"Pope Leo XIV Mails In His Ballot, Becoming the First Pope Ever to Vote in a US Election; No Word on Whether He Got the Sticker",
+   real:"Chicago-born Pope Leo XIV submitted a mail ballot, the first pontiff to vote in a US election.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"]]}
 ];
 
 const TIERS = [
@@ -243,7 +223,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-10-23T08:55:00+04:00";
+const UPDATED = "2026-11-02T09:40:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
