@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Monday, 2 November 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Wednesday, 4 November 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -170,49 +170,45 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 31 October–2 November 2026, updated Monday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 2–4 November 2026, updated Wednesday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {d:"2026-11-01", desk:"Middle East", region:"Strait of Hormuz", doom:86, art:"ship",
-   h:"Araghchi Says Hormuz Could Reopen in Two Days If the US Meets Iran's Demands, Down From Last Week's Seven, Which Is Technically Progress",
-   real:"Iran's foreign minister said the strait could reopen within two days if Washington meets Iran's demands, as Qatar-mediated talks continue in Doha. A Qatari LNG tanker was struck in the Gulf, drawing condemnation from Saudi Arabia, Qatar and Kuwait, another vessel was hit in Hormuz, and Reuters reports Iran is moving military hardware past the US blockade.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"],["ABC News","https://abcnews.com/International/live-updates/iran-live-updates-houthis-claim-new-attack-riyadh/?id=137563447"]]},
-  {d:"2026-11-01", desk:"Middle East", region:"USA / Iran", doom:84, art:"tv", t:"NOV 4",
-   h:"Trump Says He's in No Hurry for an Iran Deal at a Mar-a-Lago Halloween Party; Iran Says Vance's New Letter Has a “Completely Changed” Tone",
-   real:"Trump said the US is “not in that much of a hurry” for a deal and still has to “take care” of one or two targets in Iran, and reportedly discussed resuming strikes with Netanyahu. Iran's Mohsen Rezaei said a letter from JD Vance aimed at reviving talks struck a new tone; Iran's supreme leader warned of a response “without geographical limits” and an official said nuclear talks are off the table.",
-   src:[["ABC News","https://abcnews.com/International/live-updates/iran-live-updates-houthis-claim-new-attack-riyadh/?id=137563447"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"],["Fox News","https://www.foxnews.com/live-news/us-iran-war-trump-israel-strait-hormuz-10-31-26"]]},
-  {d:"2026-11-01", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
-   h:"Saudi Arabia Moves Some Schools to Remote Learning as Houthi Threats Continue; The Kingdom Is Slowly Becoming One Big Zoom Call",
-   real:"The Houthis renewed threats against Aramco and Saudi airspace, the Saudi-led coalition intercepted another ballistic missile, and alerts went out in Abha, Khamis Mushait and Jazan. Some areas switched to remote learning. The UN says more than 300,000 people have fled fighting in western Yemen, and Saudi Arabia announced a visa amnesty for Yemenis in the kingdom.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"]]},
-  {d:"2026-11-01", desk:"Middle East", region:"UAE", doom:60, art:"folder", t:"BRACED",
-   h:"UAE's Gargash Says the Country Hopes for a Breakthrough but Is “Braced for the Worst,” Now the Official Mood of the Entire Gulf",
-   real:"UAE presidential adviser Anwar Gargash said the UAE hopes for a breakthrough in the US-Iran war but is braced for the worst.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-1-2026"]]},
-  {d:"2026-11-01", desk:"World", region:"Ukraine", doom:72, art:"missile",
-   h:"No Joke on This One: Russian Strike on Koziatyn Kills a 13-Year-Old Girl Days Before Peace Talks",
-   real:"A Russian strike near a school and a dormitory for displaced people in Koziatyn, Vinnytsia region, killed two people, including a 13-year-old girl, and injured six, four of them children. Ukraine, Russia and the US are due to hold peace talks between 6 and 10 November.",
-   src:[["UA.News","https://ua.news/en/war-vs-rf/u-koziatini-zrosla-kilkist-zhertv-rosiiskogo-udaru-bilshist-iz-nikh-diti"],["Korea Times","https://www.koreatimes.co.kr/world/20261029/ukraine-russia-us-peace-negotiators-to-meet-between-nov-6-and-10-zelenskyy-says"]]},
-  {d:"2026-11-01", desk:"World", region:"DR Congo / Africa", doom:68, art:"cross",
-   h:"No Joke on This One Either: Congo's Ebola Outbreak Passes 5,000 Deaths and Spreads to Four More Countries",
-   real:"Government figures show more than 5,000 Ebola deaths out of 10,351 infections in DR Congo, with cases also recorded in Kenya, Nigeria and Uganda.",
-   src:[["Morning Star","https://morningstaronline.co.uk/article/world-brief-november-1-2026"]]},
-  {d:"2026-11-01", desk:"World", region:"USA", doom:55, art:"ballot",
-   h:"America Votes Tomorrow: Democrats Lead House Polls, Ted Cruz Predicts a “Bloodbath,” and Trump Says “28 Days of This Crap Is a Lot”",
-   real:"CBS polling gives Democrats an edge for the House, with the Senate hinging on toss-ups in Maine, Michigan, Ohio, Texas and Alaska. Nearly 50 million early votes had been cast by Friday. Ted Cruz warned Republicans could lose Texas and both chambers, and Trump told a Florida rally “28 days of this crap is a lot.”",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"],["Al Jazeera","https://www.aljazeera.com/news/2026/10/31/us-midterms-3-days-to-go-what-latest-polls-say-as-early-voting-surges"]]},
-  {d:"2026-11-01", desk:"Weird", region:"Alaska", doom:22, art:"tv", t:"190",
-   h:"Alaska's Senate Ballot Has Two Dan Sullivans; Trump Says You Need a “190 IQ” to Vote There, and the DOJ Wants to Block Results If the Wrong One Loses",
-   real:"An independent candidate named Daniel J. Sullivan shares a name with Republican Sen. Dan Sullivan. The Justice Department sued to block certification if the senator loses, citing voter confusion; Alaska has moved to dismiss the suit, and Trump said voters need a “190 IQ” to understand the ballot.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"]]},
-  {d:"2026-11-01", desk:"Good News", region:"Chicago / Vatican", doom:3, art:"folder", t:"MAILED",
-   h:"Pope Leo XIV Mails In His Ballot, Becoming the First Pope Ever to Vote in a US Election; No Word on Whether He Got the Sticker",
-   real:"Chicago-born Pope Leo XIV submitted a mail ballot, the first pontiff to vote in a US election.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/2026-midterm-elections-campaigns-weekend-before/"]]}
+  {d:"2026-11-04", desk:"World", region:"USA", doom:40, art:"ballot",
+   h:"Democrats Win Both Chambers of Congress, NBC and CBS Project; Trump Says He's “Absolutely Willing to Accept” It, Which Is Also New",
+   real:"NBC News and CBS News project Democrats have won control of both the House and the Senate in the midterms, which needed a net gain of four seats in each chamber. Trump told The New York Times he is “absolutely willing to accept those results” and expects to “work something out,” while saying on Truth Social that Republicans would have won if he had been on the ballot.",
+   src:[["NBC News","https://www.nbcnews.com/politics/2026-election/live-blog/midterm-election-results-2026-news-trump-live-updates-rcna605763"],["CBS News","https://www.cbsnews.com/live-updates/election-day-2026-midterms/"],["Parade","https://parade.com/news/donald-trump-ready-to-accept-midterm-election-results-as-republicans-face-losses"]]},
+  {d:"2026-11-04", desk:"World", region:"Texas", doom:15, art:"tv", t:"1994",
+   h:"A Democrat Wins Statewide in Texas for the First Time Since 1994; Texas Political Scientists Quietly Reprint Their Textbooks",
+   real:"Democrat James Talarico defeated Republican Ken Paxton in the Texas Senate race, the most expensive Senate race in US history, according to the Washington Post, Axios and Houston Public Media, ending the GOP's 32-year statewide winning streak in Texas.",
+   src:[["Houston Public Media","https://www.houstonpublicmedia.org/articles/news/politics/election-2026/2026/11/03/565938/talarico-paxton-senate-race-texas-results/"],["Axios","https://www.axios.com/2026/11/04/texas-senate-results-talarico-paxton"],["Washington Post","https://www.washingtonpost.com/elections/results/2026/11/03/texas-senate-paxton-talarico-live-updates/"]]},
+  {d:"2026-11-03", desk:"Middle East", region:"USA / Iran", doom:86, art:"missile",
+   h:"Trump Promised No Iran Strikes Before the Midterms, Then Hit Qeshm Island the Night Before, Calling It “Defensive” and Technically Not a War",
+   real:"US forces carried out what officials called “limited defensive strikes” on Iran's Qeshm Island near Hormuz on the eve of the vote, after the Revolutionary Guard reportedly fired on a US aircraft; Trump confirmed the strike, after saying hours earlier “it's not a war” and a deal “could happen.” Iran's Guard says it shot down two US drones, and AP reports Netanyahu is pressing for a new strike wave after the midterms.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
+  {d:"2026-11-03", desk:"Middle East", region:"Strait of Hormuz / Oman", doom:84, art:"ship",
+   h:"No Joke on This One: An Indian Sailor Is Killed as a Ship Is Hit Off Oman; Iran Says 11 Tankers Have Caught Fire in Nine Days",
+   real:"An India-flagged vessel was struck by an unidentified aerial object off Oman, killing one Indian crew member; Oman's coast guard rescued 13. Iranian state media say three more tankers hit mines in Hormuz and claim 11 tankers have caught fire in nine days, claims that have not been verified.",
+   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
+  {d:"2026-11-03", desk:"Middle East", region:"Qatar", doom:68, art:"folder", t:"36 HRS",
+   h:"Qatar Says It's “Bridging the Gap” Between the US and Iran; Both Sides Have 36 Hours to Reply, Like a Very High-Stakes Group Chat",
+   real:"Qatar says both Washington and Tehran are reviewing a draft proposal to end the war, with feedback expected within 36 hours; mediators are reportedly working on a deal in which Iran stops Hormuz attacks in exchange for the US lifting its port blockade. A senior Iranian official told Reuters a deal remains out of reach.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"]]},
+  {d:"2026-11-03", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
+   h:"Saudi Coalition Downs a Drone Over Mecca as the Houthis Claim Another Attack on Dammam Airport",
+   real:"The Saudi-led coalition said it intercepted and destroyed a drone over Mecca. The Houthis claimed drone attacks on Dammam airport and a radar site in Jizan, and say Saudi strikes killed 17 people in Yemen over two days.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"]]},
+  {d:"2026-11-03", desk:"Money", region:"Saudi Arabia", doom:30, art:"pump", t:"+35%",
+   h:"Aramco's Profits Jump 35% With a War on Its Doorstep, Because Oil Companies Simply Don't Do Bad Quarters",
+   real:"Saudi Aramco reported a 34.6% rise in third-quarter profit and began early engineering on expanding its East-West pipeline, which bypasses Hormuz. Lufthansa says the war will add €2 billion to its fuel bill this year.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
+  {d:"2026-11-03", desk:"Weird", region:"Saudi Arabia", doom:22, art:"plane", t:"2027",
+   h:"Saudi Arabia Postpones the Asian Cup to December 2027, Joining Delta, Rocket Lab and Tesla in the Exclusive 2027 Club",
+   real:"The AFC Asian Cup, due to be hosted by Saudi Arabia, has been postponed to December 2027 because of the war.",
+   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]}
 ];
 
 const TIERS = [
@@ -223,7 +219,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-11-02T09:40:00+04:00";
+const UPDATED = "2026-11-04T09:55:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
