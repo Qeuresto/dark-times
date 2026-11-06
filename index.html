@@ -124,7 +124,7 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
 <div class="wrap">
   <header class="mast">
     <h1 class="brand">Dark <span>Times</span></h1>
-    <div class="tag"><b id="today">Wednesday, 4 November 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
+    <div class="tag"><b id="today">Friday, 6 November 2026</b><span>The news, but honest about the vibes</span><span class="upd" id="updated"></span></div>
   </header>
 
   <div class="ticker" aria-hidden="true"><div id="tick"></div></div>
@@ -170,45 +170,61 @@ footer{font-size:13.5px;color:var(--ink2);border-top:4px solid var(--fg);padding
   <div class="legend" id="legend"></div>
 
   <footer>
-    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 2–4 November 2026, updated Wednesday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
+    <span>Headlines are jokes. The "What actually happened" lines are real, summarised from the linked reporting from 5–6 November 2026, updated Friday morning. Stories stay up until their latest report is more than 36 hours old. Read the sources before you panic at anyone.</span>
     <span>Doom scores are vibes, not science. Overall reading = 60% the average story + 40% the worst story, because one bad story ruins the whole brunch.</span>
   </footer>
 </div>
 
 <script>
 const STORIES = [
-  {d:"2026-11-04", desk:"World", region:"USA", doom:40, art:"ballot",
-   h:"Democrats Win Both Chambers of Congress, NBC and CBS Project; Trump Says He's “Absolutely Willing to Accept” It, Which Is Also New",
-   real:"NBC News and CBS News project Democrats have won control of both the House and the Senate in the midterms, which needed a net gain of four seats in each chamber. Trump told The New York Times he is “absolutely willing to accept those results” and expects to “work something out,” while saying on Truth Social that Republicans would have won if he had been on the ballot.",
-   src:[["NBC News","https://www.nbcnews.com/politics/2026-election/live-blog/midterm-election-results-2026-news-trump-live-updates-rcna605763"],["CBS News","https://www.cbsnews.com/live-updates/election-day-2026-midterms/"],["Parade","https://parade.com/news/donald-trump-ready-to-accept-midterm-election-results-as-republicans-face-losses"]]},
-  {d:"2026-11-04", desk:"World", region:"Texas", doom:15, art:"tv", t:"1994",
-   h:"A Democrat Wins Statewide in Texas for the First Time Since 1994; Texas Political Scientists Quietly Reprint Their Textbooks",
-   real:"Democrat James Talarico defeated Republican Ken Paxton in the Texas Senate race, the most expensive Senate race in US history, according to the Washington Post, Axios and Houston Public Media, ending the GOP's 32-year statewide winning streak in Texas.",
-   src:[["Houston Public Media","https://www.houstonpublicmedia.org/articles/news/politics/election-2026/2026/11/03/565938/talarico-paxton-senate-race-texas-results/"],["Axios","https://www.axios.com/2026/11/04/texas-senate-results-talarico-paxton"],["Washington Post","https://www.washingtonpost.com/elections/results/2026/11/03/texas-senate-paxton-talarico-live-updates/"]]},
-  {d:"2026-11-03", desk:"Middle East", region:"USA / Iran", doom:86, art:"missile",
-   h:"Trump Promised No Iran Strikes Before the Midterms, Then Hit Qeshm Island the Night Before, Calling It “Defensive” and Technically Not a War",
-   real:"US forces carried out what officials called “limited defensive strikes” on Iran's Qeshm Island near Hormuz on the eve of the vote, after the Revolutionary Guard reportedly fired on a US aircraft; Trump confirmed the strike, after saying hours earlier “it's not a war” and a deal “could happen.” Iran's Guard says it shot down two US drones, and AP reports Netanyahu is pressing for a new strike wave after the midterms.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
-  {d:"2026-11-03", desk:"Middle East", region:"Strait of Hormuz / Oman", doom:84, art:"ship",
-   h:"No Joke on This One: An Indian Sailor Is Killed as a Ship Is Hit Off Oman; Iran Says 11 Tankers Have Caught Fire in Nine Days",
-   real:"An India-flagged vessel was struck by an unidentified aerial object off Oman, killing one Indian crew member; Oman's coast guard rescued 13. Iranian state media say three more tankers hit mines in Hormuz and claim 11 tankers have caught fire in nine days, claims that have not been verified.",
-   src:[["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"],["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
-  {d:"2026-11-03", desk:"Middle East", region:"Qatar", doom:68, art:"folder", t:"36 HRS",
-   h:"Qatar Says It's “Bridging the Gap” Between the US and Iran; Both Sides Have 36 Hours to Reply, Like a Very High-Stakes Group Chat",
-   real:"Qatar says both Washington and Tehran are reviewing a draft proposal to end the war, with feedback expected within 36 hours; mediators are reportedly working on a deal in which Iran stops Hormuz attacks in exchange for the US lifting its port blockade. A senior Iranian official told Reuters a deal remains out of reach.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"]]},
-  {d:"2026-11-03", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:80, art:"derrick",
-   h:"Saudi Coalition Downs a Drone Over Mecca as the Houthis Claim Another Attack on Dammam Airport",
-   real:"The Saudi-led coalition said it intercepted and destroyed a drone over Mecca. The Houthis claimed drone attacks on Dammam airport and a radar site in Jizan, and say Saudi strikes killed 17 people in Yemen over two days.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"],["CBS News","https://www.cbsnews.com/live-updates/iran-war-us-trump-negotiations-midterms/"]]},
-  {d:"2026-11-03", desk:"Money", region:"Saudi Arabia", doom:30, art:"pump", t:"+35%",
-   h:"Aramco's Profits Jump 35% With a War on Its Doorstep, Because Oil Companies Simply Don't Do Bad Quarters",
-   real:"Saudi Aramco reported a 34.6% rise in third-quarter profit and began early engineering on expanding its East-West pipeline, which bypasses Hormuz. Lufthansa says the war will add €2 billion to its fuel bill this year.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]},
-  {d:"2026-11-03", desk:"Weird", region:"Saudi Arabia", doom:22, art:"plane", t:"2027",
-   h:"Saudi Arabia Postpones the Asian Cup to December 2027, Joining Delta, Rocket Lab and Tesla in the Exclusive 2027 Club",
-   real:"The AFC Asian Cup, due to be hosted by Saudi Arabia, has been postponed to December 2027 because of the war.",
-   src:[["Khaleej Times","https://www.khaleejtimes.com/world/mena/us-israel-iran-saudi-arabia-yemen-war-live-updates-november-3-2026"]]}
+  {d:"2026-11-05", desk:"Middle East", region:"USA / Iran / Qatar", doom:80, art:"folder", t:"7 FIRST",
+   h:"Iran Sends the US a Nuclear Proposal via Qatar, to Be Opened Only After Its Seven Demands Are Met, Like a Gift With Very Long Terms of Service",
+   real:"A senior Iranian official told Reuters Iran sent a nuclear proposal to Washington through Qatar, to be discussed once the US meets Tehran's seven demands, including lifting sanctions, releasing frozen assets and paying reparations. Washington says nuclear issues must come first. Trump said he would “rather not” destroy Iran but might have to, and that Iran is “not doing anything without our approval.”",
+   src:[["Jerusalem Post / Reuters","https://www.jpost.com/middle-east/article-914025"],["Gulf News","https://gulfnews.com/world/mena/usisrael-iran-standoff-what-uae-residents-should-know-this-evening-1.500737389"],["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"Middle East", region:"Strait of Hormuz / Qatar", doom:82, art:"ship",
+   h:"A Tanker Is Hit 50 Miles Off Qatar as Iran Says Hormuz Stays Shut Until All Seven Demands Are Met; Oil Falls Anyway Because Nothing Makes Sense",
+   real:"UKMTO reported a tanker hit by two projectiles about 50 nautical miles north of Madinat ash Shamal, Qatar, and Iran's Revolutionary Guard says two tankers and a tug caught fire, one after hitting a mine; neither account is confirmed. Mohsen Rezaei said Iran won't reopen Hormuz or negotiate until its conditions are met. Brent is heading toward $93 after falling sharply this week.",
+   src:[["Gulf News","https://gulfnews.com/world/mena/usisrael-iran-standoff-what-uae-residents-should-know-this-evening-1.500737389"],["Nation Thailand","https://www.nationthailand.com/news/world/40073163"],["US News / Reuters","https://www.usnews.com/news/top-news/articles/2026-11-05/tankers-hit-in-hormuz-as-iran-keeps-up-pressure-after-us-vote"]]},
+  {d:"2026-11-05", desk:"Middle East", region:"Saudi Arabia / Yemen", doom:78, art:"receipt", t:"$51B",
+   h:"Houthis Reportedly Ask Saudi Arabia for $51 Billion and Recognition to End the War; Riyadh Says the Invoice Is Wrong",
+   real:"The Wall Street Journal reports the Houthis are demanding tens of billions of dollars, reportedly $51 billion, plus recognition as Yemen's rulers to end the war; Saudi Arabia denied the figure. The Saudi-led coalition said it intercepted a Houthi ballistic missile aimed at the Medina region, which the Houthis denied, saying they targeted oil and military sites.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"],["Gulf News","https://gulfnews.com/world/mena/usisrael-iran-standoff-what-uae-residents-should-know-this-evening-1.500737389"]]},
+  {d:"2026-11-05", desk:"Middle East", region:"Gaza / West Bank", doom:60, art:"cross",
+   h:"No Joke on This One: Israeli Forces Kill at Least Five in Gaza, Including a 12-Year-Old Boy",
+   real:"Israeli forces killed at least five people across Gaza on Thursday, including a 12-year-old boy, and wounded eight and arrested more than 50 people in the West Bank.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"Middle East", region:"Israel", doom:50, art:"ballot",
+   h:"Two Weeks After Trump Endorsed Netanyahu, Opposition Leader Gadi Eisenkot Appears to Have 67 Knesset Seats Behind Him",
+   real:"President Isaac Herzog began consultations to choose a prime minister-designate after the 27 October election, with opposition leader Gadi Eisenkot appearing to have the backing of 67 Knesset members.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"World", region:"Ukraine / Russia", doom:65, art:"plane", t:"AUH",
+   h:"Melania Trump Hosts Russian and Ukrainian Officials at the White House; The Real Talks Move to Abu Dhabi Next Week, Where Everyone Ends Up Eventually",
+   real:"Melania Trump hosted Russian and Ukrainian officials at the White House with no apparent progress, and US envoy Steve Witkoff says trilateral peace talks will be held in Abu Dhabi next week. Russian attacks killed at least four people in Donetsk region.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"],["Axios","https://www.axios.com/2026/11/03/us-russia-ukraine-peace-talks-uae-trump-witkoff-kushner"],["AllSides","https://www.allsides.com/news/2026-11-05-0800/ukraine-war-us-mediate-trilateral-talks-ukraine-russia-abu-dhabi-next-week-us-envoy-says"]]},
+  {d:"2026-11-05", desk:"Money", region:"Wall Street", doom:60, art:"chip",
+   h:"Wall Street Has Its Worst Day Since April 2025 on Fears Democrats Will Slow the Data Centre Boom; Micron and AMD Drop 17%, Krispy Kreme Rises 30%",
+   real:"The S&P 500 fell 4.36% and the Nasdaq 5.5%, entering a correction, while the Dow lost 1,833 points, erasing its post-election gain. Chip stocks had their worst day since March 2020 on fears of slower data-centre construction after the Democrats' midterm win and local backlash against data centres.",
+   src:[["StockTitan","https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"],["CNBC","https://www.cnbc.com/2026/11/04/stock-market-today-live-updates.html"]]},
+  {d:"2026-11-05", desk:"World", region:"North Korea", doom:50, art:"rocket",
+   h:"North Korea Fires Its Fourth Missile in a Month as Kim Yo Jong Rejects US Talks, Keeping the Group Chat Firmly on Mute",
+   real:"Kim Yo Jong rejected talks with the US, citing its “hostile policy,” and North Korea fired another missile, its fourth in a month.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"World", region:"Europe", doom:45, art:"plane", t:"HOAX",
+   h:"About 30 European Flights Get Hoax Bomb Threats in One Day; Officials Suspect Russia, Passengers Just Suspect Their Weekend",
+   real:"About 30 flights across Europe received hoax bomb threats on Thursday; officials suspect Russian involvement but haven't confirmed it.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"World", region:"France", doom:38, art:"cloud", t:"FIRE", t2:"600,000",
+   h:"France's Protests Hit 600,000 People Over Schools and Austerity; Macron's “Consequences” Remain Pending",
+   real:"About 600,000 people joined nationwide protests and strikes over school conditions, living costs and austerity, with some clashes with police.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"Weird", region:"Somalia", doom:35, art:"folder", t:"OVERRULED",
+   h:"Somalia's Top Court Rules the President's Term Extension Illegal, So the President Removes the Court's Chief Justice",
+   real:"President Hassan Sheikh Mohamud removed the Supreme Court chief justice after the court ruled his term extension was illegal, deepening the country's political crisis.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]},
+  {d:"2026-11-05", desk:"Weird", region:"Paraguay", doom:28, art:"folder", t:"BOTH",
+   h:"Paraguay's President Resigns and Gets Impeached on the Same Day, Just to Cover All the Bases",
+   real:"President Santiago Peña resigned and was impeached by the Chamber of Deputies after the collapse of Ueno bank, which is linked to his administration.",
+   src:[["Foreign Exchanges","https://www.foreignexchanges.news/p/world-roundup-november-5-2026"]]}
 ];
 
 const TIERS = [
@@ -219,7 +235,7 @@ const TIERS = [
   {max:101, label:"Charcoal",      tok:"--d5", blurb:"Fully carbonised. Log off, call your mom, eat the good snacks."}
 ];
 // Last update, set on every refresh (Dubai time)
-const UPDATED = "2026-11-04T09:55:00+04:00";
+const UPDATED = "2026-11-06T09:45:00+04:00";
 (function showUpdated(){
   const d = new Date(UPDATED);
   const when = d.toLocaleString("en-GB", {timeZone:"Asia/Dubai", weekday:"short", day:"numeric", month:"short", year:"numeric", hour:"numeric", minute:"2-digit", hour12:true});
